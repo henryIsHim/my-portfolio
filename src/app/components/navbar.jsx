@@ -6,25 +6,31 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('about');
 
-  // Handle scroll and intersection observer
+  // Handle scroll and section detection
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
-          }
-        });
-      },
-      { threshold: 0.5 }
-    );
+    const handleScroll = () => {
+      const sections = document.querySelectorAll('section[id]');
+      const scrollPosition = window.scrollY + window.innerHeight / 3; // Adjust viewport offset
 
-    // Observe all sections
-    document.querySelectorAll('section[id]').forEach((section) => {
-      observer.observe(section);
-    });
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop;
+        const sectionBottom = sectionTop + section.offsetHeight;
 
-    return () => observer.disconnect();
+        if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+          setActiveSection(section.id);
+        }
+      });
+    };
+
+    // Initial check
+    handleScroll();
+
+    // Add scroll event listener
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll, { passive: true });
+    };
   }, []);
 
   // Prevent body scroll when mobile menu is open
@@ -49,9 +55,12 @@ const Navbar = () => {
     e.preventDefault();
     const element = document.querySelector(href);
     if (element) {
-      const offset = 80; // Height of your fixed navbar
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - offset;
+      const headerOffset = 80;
+      const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+      const offsetPosition = elementPosition - headerOffset;
+
+      // Immediately update active section
+      setActiveSection(href.slice(1));
 
       window.scrollTo({
         top: offsetPosition,
