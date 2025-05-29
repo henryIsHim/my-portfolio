@@ -50,7 +50,7 @@ export default function Footer() {
                 <FaEnvelope className="w-5 h-5" />
               </a>
               <a
-                href="https://linkedin.com/in/hein-thuya-win-b54932363"
+                href="https://www.linkedin.com/in/heinthuyawin"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-gray-100 p-3 rounded-full text-gray-600 hover:bg-blue-600 hover:text-white transition-all duration-300"

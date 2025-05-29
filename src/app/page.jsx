@@ -87,7 +87,7 @@ export default function HomePage() {
 
           {/* LinkedIn Card */}
           <a
-            href="https://linkedin.com/in/hein-thuya-win-b54932363"
+            href="https://www.linkedin.com/in/heinthuyawin"
             target="_blank"
             rel="noopener noreferrer"
             className="group flex flex-col items-center p-4 md:p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300"
