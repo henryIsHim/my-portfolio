@@ -1,13 +1,22 @@
+"use client";
 import Image from 'next/image';
 import { FiExternalLink, FiGithub } from 'react-icons/fi';
+import { motion } from 'framer-motion';
 
 const ProjectCard = ({ project }) => {
   const { title, description, image, tags, liveUrl, githubUrl, status } = project;
 
   return (
-    <div className="group relative bg-white dark:bg-gray-900 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
+    <motion.div
+      className="group relative bg-white dark:bg-gray-900 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02]"
+      initial={{ opacity: 0, scale: 0.95 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      whileHover={{ scale: 1.04, boxShadow: "0 8px 32px rgba(0,0,0,0.15)" }}
+      viewport={{ once: false, amount: 0.2 }}
+      transition={{ type: "spring", stiffness: 120, damping: 14 }}
+    >
       {/* Status Badge */}
-      {status && (
+      {status && (  
         <div className="absolute top-3 right-3 z-10">
           <span className={`px-2 py-1 text-xs font-medium rounded-full ${
             status === 'Complete' 
@@ -54,7 +63,7 @@ const ProjectCard = ({ project }) => {
 
       {/* Project Info */}
       <div className="p-4 md:p-6">
-        <h3 className="text-lg md:text-xl font-bold mb-2">{title}</h3>
+        <h3 className="text-lg md:text-xl font-bold mb-2 text-gray-900 dark:text-white">{title}</h3>
         <p className="text-sm md:text-base text-gray-600 dark:text-gray-400 mb-4 line-clamp-2">{description}</p>
         
         {/* Tags */}
@@ -69,7 +78,7 @@ const ProjectCard = ({ project }) => {
           ))}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

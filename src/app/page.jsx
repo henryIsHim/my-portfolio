@@ -1,7 +1,10 @@
+"use client";
 import Image from 'next/image';
 import ProjectCard from './components/projectCard';
 import { projects } from './data/projects';
 import Separator from './components/separator';
+import { FaFacebook, FaInstagram, FaLinkedin, FaGithub } from 'react-icons/fa';
+import { motion } from 'framer-motion';
 
 export default function HomePage() {
   return (
@@ -9,16 +12,17 @@ export default function HomePage() {
       {/* Hero Section */}
       <section id="about" className="flex flex-col-reverse md:flex-row items-center justify-between py-8 md:py-32 gap-8">
         {/* Left side - Text content */}
-        <div className="flex-1 text-center md:text-left">
+        <motion.div
+          className="flex-1 text-center md:text-left"
+          initial={{ opacity: 0, x: -40 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
+        >
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             Hey, I'm Henry 👋
           </h1>
-          <p className="text-base md:text-lg text-gray-600 max-w-xl mb-6">
-            A passionate ICT student and aspiring full-stack developer based in Thailand.
-            I love building clean, user-focused web experiences and exploring how tech can solve real problems.
-          </p>
-          <p className="text-base md:text-lg text-gray-600 max-w-xl mb-6">
-            I'm a student at Rangsit University, where I'm pursuing a degree in Information and Communication Technology.
+          <p className="text-base md:text-lg text-gray-600 max-w-xl mb-6 text-justify">
+            I'm a final-year ICT student at Rangsit University International College, specializing in Full Stack Web Development with hands-on experience in AI and Machine Learning projects. I'm passionate about solving real problems through clean, efficient code and smart systems. <span className="font-bold text-gray-900">Currently seeking internship opportunities</span> to learn, grow, and make an impact.
           </p>
           <div className="flex flex-wrap gap-4 justify-center md:justify-start">
             <a
@@ -32,10 +36,31 @@ export default function HomePage() {
               </svg>
             </a>
           </div>
-        </div>
+
+          {/* Social Icons Row */}
+          <div className="flex justify-center md:justify-start gap-4 mt-4">
+            <a href="https://www.facebook.com/heinthuya.win.14" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="text-gray-500 hover:text-blue-600 transition-colors text-2xl">
+              <FaFacebook />
+            </a>
+            <a href="https://instagram.com/yourprofile" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-gray-500 hover:text-pink-500 transition-colors text-2xl">
+              <FaInstagram />
+            </a>
+            <a href="https://www.instagram.com/hein_tyw?igsh=c3RtbDNoc2VyemRx&utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-gray-500 hover:text-blue-700 transition-colors text-2xl">
+              <FaLinkedin />
+            </a>
+            <a href="https://github.com/henryIsHim" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-gray-500 hover:text-black transition-colors text-2xl">
+              <FaGithub />
+            </a>
+          </div>
+        </motion.div>
 
         {/* Right side - Profile Picture */}
-        <div className="flex-1 flex justify-center md:justify-end mb-8 md:mb-0">
+        <motion.div
+          className="flex-1 flex justify-center md:justify-end mb-8 md:mb-0"
+          initial={{ opacity: 0, x: 40 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
+        >
           <div className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80">
             <Image
               src="/profile.jpg"
@@ -46,7 +71,7 @@ export default function HomePage() {
               sizes="(max-width: 640px) 192px, (max-width: 768px) 256px, 320px"
             />
           </div>
-        </div>
+        </motion.div>
       </section>
 
       <Separator />
@@ -123,7 +148,6 @@ export default function HomePage() {
           <p className="text-sm text-gray-500 mt-2">Open to remote opportunities worldwide</p>
         </div>
       </section>
-
     </main>
   );
 }
