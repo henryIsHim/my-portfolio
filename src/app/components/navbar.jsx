@@ -111,19 +111,16 @@ const Navbar = () => {
             >
               <div className="w-6 flex flex-col gap-1.5">
                 <span
-                  className={`block h-0.5 w-full bg-gray-800 transform transition-all duration-300 ${
-                    isOpen ? 'rotate-45 translate-y-2' : ''
-                  }`}
+                  className={`block h-0.5 w-full bg-gray-800 transform transition-all duration-300 ${isOpen ? 'rotate-45 translate-y-2' : ''
+                    }`}
                 ></span>
                 <span
-                  className={`block h-0.5 w-full bg-gray-800 transition-all duration-300 ${
-                    isOpen ? 'opacity-0' : ''
-                  }`}
+                  className={`block h-0.5 w-full bg-gray-800 transition-all duration-300 ${isOpen ? 'opacity-0' : ''
+                    }`}
                 ></span>
                 <span
-                  className={`block h-0.5 w-full bg-gray-800 transform transition-all duration-300 ${
-                    isOpen ? '-rotate-45 -translate-y-2' : ''
-                  }`}
+                  className={`block h-0.5 w-full bg-gray-800 transform transition-all duration-300 ${isOpen ? '-rotate-45 -translate-y-2' : ''
+                    }`}
                 ></span>
               </div>
             </button>
@@ -137,27 +134,27 @@ const Navbar = () => {
 
         {/* Mobile Menu */}
         <div
-          className={`fixed inset-x-0 top-0 z-40 h-screen bg-white transform transition-transform duration-300 ease-in-out md:hidden ${
-            isOpen ? 'translate-y-0' : '-translate-y-full'
-          }`}
+          className={`fixed top-16 right-4 z-50 w-32 bg-white rounded-lg shadow-lg border border-gray-200
+          transform transition-all duration-300 ease-in-out md:hidden
+          ${isOpen ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 -translate-y-4 pointer-events-none'}`}
         >
-          <div className="flex flex-col items-center justify-center min-h-screen gap-8 pt-16">
+          <div className="flex flex-col items-center py-4">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={(e) => scrollToSection(e, link.href)}
-                className={`text-2xl font-medium ${
-                  activeSection === link.href.slice(1)
-                    ? 'text-blue-600'
-                    : 'text-gray-800'
-                }`}
+                className={`px-4 py-2 text-base font-medium hover:bg-gray-100 transition-colors ${activeSection === link.href.slice(1)
+                  ? 'text-blue-600'
+                  : 'text-gray-800'
+                  }`}
               >
                 {link.label}
               </a>
             ))}
           </div>
         </div>
+
       </nav>
     </header>
   );

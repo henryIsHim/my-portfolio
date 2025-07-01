@@ -8,6 +8,7 @@ export const projects = [
     liveUrl: "https://heinthuyawin-portfolio.vercel.app",
     githubUrl: "https://github.com/henryIsHim/my-portfolio",
     status: "Complete",
+    type: "Full Stack",
   },
   {
     id: 2,
@@ -18,6 +19,7 @@ export const projects = [
     liveUrl: "https://taskmanager-pro.vercel.app",
     githubUrl: "https://github.com/henryIsHim/react-ecommerce",
     status: "In Progress",
+    type: "Full Stack",
   },
   {
     id: 3,
@@ -28,6 +30,7 @@ export const projects = [
     liveUrl: "https://weather-dashboard.vercel.app",
     githubUrl: "https://github.com/henryIsHim/weather-app",
     status: "Complete",
+    type: "Data Science",
   },
   {
     id: 4,
@@ -38,5 +41,6 @@ export const projects = [
     liveUrl: "https://nextjs-ecommerce.vercel.app",
     githubUrl: "https://github.com/henryIsHim/ecommerce",
     status: "Complete",
+    type: "Front End",
   }
 ]; 
