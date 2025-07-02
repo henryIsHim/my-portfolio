@@ -16,13 +16,12 @@ const ProjectCard = ({ project }) => {
       transition={{ type: "spring", stiffness: 120, damping: 14 }}
     >
       {/* Status Badge */}
-      {status && (  
+      {status && (
         <div className="absolute top-3 right-3 z-10">
-          <span className={`px-2 py-1 text-xs font-medium rounded-full ${
-            status === 'Complete' 
+          <span className={`px-2 py-1 text-xs font-medium rounded-full ${status === 'Complete'
               ? 'bg-green-100 text-green-800'
               : 'bg-yellow-100 text-yellow-800'
-          }`}>
+            }`}>
             {status}
           </span>
         </div>
@@ -37,7 +36,7 @@ const ProjectCard = ({ project }) => {
           className="object-cover"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
-        
+
         {/* Overlay with buttons - Show on hover for desktop, always visible with reduced opacity for mobile */}
         <div className="absolute inset-0 bg-black bg-opacity-40 md:bg-opacity-60 md:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3 md:gap-4">
           <a
@@ -65,7 +64,7 @@ const ProjectCard = ({ project }) => {
       <div className="p-4 md:p-6">
         <h3 className="text-lg md:text-xl font-bold mb-2 text-gray-900 dark:text-white">{title}</h3>
         <p className="text-sm md:text-base text-gray-600 dark:text-gray-400 mb-4 line-clamp-2">{description}</p>
-        
+
         {/* Tags */}
         <div className="flex flex-wrap gap-1.5 md:gap-2">
           {tags.map((tag, index) => (
