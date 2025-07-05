@@ -8,7 +8,7 @@ const ProjectCard = ({ project }) => {
 
   return (
     <motion.div
-      className="group relative bg-white dark:bg-gray-900 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02]"
+      className="group relative glass-effect rounded-2xl overflow-hidden shadow-lg hover:shadow-xl blue-glow transition-all duration-300 hover:scale-[1.02]"
       initial={{ opacity: 0, scale: 0.95 }}
       whileInView={{ opacity: 1, scale: 1 }}
       whileHover={{ scale: 1.04, boxShadow: "0 8px 32px rgba(0,0,0,0.15)" }}
@@ -19,8 +19,8 @@ const ProjectCard = ({ project }) => {
       {status && (
         <div className="absolute top-3 right-3 z-10">
           <span className={`px-2 py-1 text-xs font-medium rounded-full ${status === 'Complete'
-              ? 'bg-green-100 text-green-800'
-              : 'bg-yellow-100 text-yellow-800'
+              ? 'bg-green-500/20 text-green-300 border border-green-500/30'
+              : 'bg-yellow-500/20 text-yellow-300 border border-yellow-500/30'
             }`}>
             {status}
           </span>
@@ -43,7 +43,7 @@ const ProjectCard = ({ project }) => {
             href={liveUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="p-2 bg-white/90 rounded-full hover:bg-blue-500 hover:text-white transition-colors"
+            className="p-2 bg-slate-800/90 text-slate-200 rounded-full hover:bg-brand-blue-500 hover:text-white transition-colors"
             title="Live Demo"
           >
             <FiExternalLink className="w-5 h-5" />
@@ -52,7 +52,7 @@ const ProjectCard = ({ project }) => {
             href={githubUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="p-2 bg-white/90 rounded-full hover:bg-blue-500 hover:text-white transition-colors"
+            className="p-2 bg-slate-800/90 text-slate-200 rounded-full hover:bg-brand-blue-500 hover:text-white transition-colors"
             title="View Code"
           >
             <FiGithub className="w-5 h-5" />
@@ -62,15 +62,15 @@ const ProjectCard = ({ project }) => {
 
       {/* Project Info */}
       <div className="p-4 md:p-6">
-        <h3 className="text-lg md:text-xl font-bold mb-2 text-gray-900 dark:text-white">{title}</h3>
-        <p className="text-sm md:text-base text-gray-600 dark:text-gray-400 mb-4 line-clamp-2">{description}</p>
+        <h3 className="text-lg md:text-xl font-bold mb-2 text-slate-100">{title}</h3>
+        <p className="text-sm md:text-base text-slate-300 mb-4 line-clamp-2">{description}</p>
 
         {/* Tags */}
         <div className="flex flex-wrap gap-1.5 md:gap-2">
           {tags.map((tag, index) => (
             <span
               key={index}
-              className="px-2 md:px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-xs font-medium"
+              className="px-2 md:px-3 py-1 bg-slate-700/50 text-slate-300 rounded-full text-xs font-medium border border-slate-600/30"
             >
               {tag}
             </span>
