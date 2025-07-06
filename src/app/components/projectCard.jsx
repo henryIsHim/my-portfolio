@@ -35,6 +35,10 @@ const ProjectCard = ({ project }) => {
           fill
           className="object-cover"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          onError={(e) => {
+            console.error('Image failed to load:', image);
+            e.target.src = '/placeholder-project.jpg';
+          }}
         />
 
         {/* Overlay with buttons - Show on hover for desktop, always visible with reduced opacity for mobile */}
@@ -62,15 +66,15 @@ const ProjectCard = ({ project }) => {
 
       {/* Project Info */}
       <div className="p-4 md:p-6">
-        <h3 className="text-lg md:text-xl font-bold mb-2 text-slate-100">{title}</h3>
-        <p className="text-sm md:text-base text-slate-300 mb-4 line-clamp-2">{description}</p>
+        <h3 className="text-lg md:text-xl font-bold mb-2 text-slate-900 dark:text-slate-50">{title}</h3>
+        <p className="text-sm md:text-base text-gray-700 dark:text-slate-200 mb-4 line-clamp-2">{description}</p>
 
         {/* Tags */}
         <div className="flex flex-wrap gap-1.5 md:gap-2">
           {tags.map((tag, index) => (
             <span
               key={index}
-              className="px-2 md:px-3 py-1 bg-slate-700/50 text-slate-300 rounded-full text-xs font-medium border border-slate-600/30"
+              className="px-2 md:px-3 py-1 bg-slate-200/50 dark:bg-slate-700/50 text-gray-700 dark:text-slate-200 rounded-full text-xs font-medium border border-slate-400/30 dark:border-slate-600/30"
             >
               {tag}
             </span>

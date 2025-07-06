@@ -5,6 +5,7 @@ module.exports = {
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {
@@ -14,6 +15,14 @@ module.exports = {
           700: '#1a2332',
           600: '#243040',
           500: '#2d3e50',
+        },
+        'light-gray': {
+          50: '#f8fafc',
+          100: '#f1f5f9',
+          200: '#e2e8f0',
+          300: '#cbd5e1',
+          400: '#94a3b8',
+          500: '#64748b',
         },
         'brand-blue': {
           400: '#60a5fa',
@@ -29,6 +38,7 @@ module.exports = {
       },
       backgroundImage: {
         'gradient-dark': 'linear-gradient(135deg, #0a0e1a 0%, #1a2332 50%, #243040 100%)',
+        'gradient-light': 'linear-gradient(135deg, #f8fafc 0%, #f1f5f9 50%, #e2e8f0 100%)',
         'gradient-blue': 'linear-gradient(135deg, #1e3a8a 0%, #1e40af 50%, #2563eb 100%)',
         'gradient-accent': 'linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%)',
       },

@@ -37,10 +37,10 @@ export default function HomePage() {
           transition={{ duration: 0.8, ease: 'easeOut' }}
         >
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
-            <span className="gradient-text">Hey, I'm Henry</span> <span className="text-slate-100">👋</span>
+            <span className="gradient-text">Hey, I'm Henry</span> <span className="text-slate-900 dark:text-slate-50">👋</span>
           </h1>
-          <p className="text-base md:text-lg text-slate-300 max-w-xl mb-6 text-justify">
-            I'm a final-year ICT student at Rangsit University International College, specializing in Full Stack Web Development with hands-on experience in AI and Machine Learning projects. I'm passionate about solving real problems through clean, efficient code and smart systems. <span className="font-bold text-accent-blue-300">Currently seeking internship opportunities</span> to learn, grow, and make an impact.
+          <p className="text-base md:text-lg text-gray-800 dark:text-slate-200 max-w-xl mb-6 text-justify">
+            I'm a final-year ICT student at Rangsit University International College, specializing in Full Stack Web Development with hands-on experience in AI and Machine Learning projects. I'm passionate about solving real problems through clean, efficient code and smart systems. <span className="font-bold text-blue-600 dark:text-accent-blue-300">Currently seeking internship opportunities</span> to learn, grow, and make an impact.
           </p>
           <div className="flex flex-wrap gap-4 justify-center md:justify-start">
             <motion.a
@@ -66,19 +66,19 @@ export default function HomePage() {
 
           {/* Social Icons Row */}
           <div className="flex justify-center md:justify-start gap-5 mt-7 ml-1">
-            <a href="https://www.facebook.com/heinthuya.win.14" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="text-slate-400 hover:text-brand-blue-400 transition-colors text-2xl">
+            <a href="https://www.facebook.com/heinthuya.win.14" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-2xl">
               <FaFacebook />
             </a>
-            <a href="https://www.instagram.com/hein_tyw?igsh=c3RtbDNoc2VyemRx&utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-slate-400 hover:text-pink-400 transition-colors text-2xl">
+            <a href="https://www.instagram.com/hein_tyw?igsh=c3RtbDNoc2VyemRx&utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-slate-500 dark:text-slate-400 hover:text-pink-600 dark:hover:text-pink-400 transition-colors text-2xl">
               <FaInstagram />
             </a>
-            <a href="https://line.me/ti/p/VUjEXXy61p" target="_blank" rel="noopener noreferrer" aria-label="Line" className="text-slate-400 hover:text-green-400 transition-colors text-2xl">
+            <a href="https://line.me/ti/p/VUjEXXy61p" target="_blank" rel="noopener noreferrer" aria-label="Line" className="text-slate-500 dark:text-slate-400 hover:text-green-600 dark:hover:text-green-400 transition-colors text-2xl">
               <FaLine />
             </a>
-            <a href="https://www.linkedin.com/in/heinthuyawin" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-slate-400 hover:text-brand-blue-400 transition-colors text-2xl">
+            <a href="https://www.linkedin.com/in/heinthuyawin" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-slate-500 dark:text-slate-400 hover:text-blue-700 dark:hover:text-blue-400 transition-colors text-2xl">
               <FaLinkedin />
             </a>
-            <a href="https://github.com/henryIsHim" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-slate-400 hover:text-white transition-colors text-2xl">
+            <a href="https://github.com/henryIsHim" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-slate-500 dark:text-slate-400 hover:text-gray-900 dark:hover:text-gray-200 transition-colors text-2xl">
               <FaGithub />
             </a>
           </div>
@@ -118,7 +118,7 @@ export default function HomePage() {
               className={`px-4 py-2 rounded-full font-medium border transition-colors duration-200 focus:outline-none
                 ${selectedType === type
                   ? 'bg-brand-blue-600 text-white border-brand-blue-600 shadow-md blue-glow'
-                  : 'glass-effect text-slate-300 border-slate-600 hover:border-brand-blue-400 hover:text-brand-blue-300'}
+                  : 'glass-effect text-gray-800 dark:text-slate-200 border-slate-400 dark:border-slate-600 hover:border-blue-600 dark:hover:border-brand-blue-400 hover:text-blue-600 dark:hover:text-brand-blue-300'}
               `}
             >
               {type}
@@ -143,7 +143,7 @@ export default function HomePage() {
       {/* Contact Section */}
       <section id="contact" className="max-w-3xl mx-auto px-4 py-8 md:py-16">
         <h2 className="text-2xl md:text-3xl font-bold text-center mb-3 gradient-text">Get in Touch</h2>
-        <p className="text-center text-slate-300 mb-8 md:mb-12 max-w-md mx-auto px-4">
+        <p className="text-center text-gray-800 dark:text-slate-200 mb-8 md:mb-12 max-w-md mx-auto px-4">
           I’m always open to discussing new projects, opportunities, or potential collaborations. Please feel free to reach out — I’ll respond promptly.
         </p>
 
