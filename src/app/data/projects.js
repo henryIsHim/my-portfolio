@@ -30,10 +30,10 @@ export const projects = [
     title: "Modern E-Commerce Platform",
     type: "Full Stack",
     description: "A comprehensive e-commerce solution featuring shopping cart functionality, user authentication, product management, and secure payment integration. Built with modern React architecture and responsive design.",
-    image: "/ecommerce.jpg",
+    image: "/ecommerce.png",
     tags: ["React", "Vite", "Tailwind CSS", "PHP", "Laravel", "MySQL"],
     features: ["Shopping cart", "User authentication", "Product catalog", "Payment integration"],
-    liveUrl: "https://github.com/henryIsHim/react-ecommerce",
+    liveUrl: "https://pnp-market.netlify.app",
     githubUrl: "https://github.com/henryIsHim/react-ecommerce",
     status: "In Progress",
     metrics: "Built with modern stack"
