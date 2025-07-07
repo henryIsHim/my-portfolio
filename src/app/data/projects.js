@@ -43,7 +43,7 @@ export const projects = [
     title: "Sales Forecasting ML Model",
     type: "Data Science",
     description: "Advanced machine learning model using LightGBM to predict 3-month item-level sales forecasts. Features data preprocessing, feature engineering, model optimization, and comprehensive visualization of sales trends and predictions.",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop&crop=entropy&cs=tinysrgb",
+    image: "/sales-forecasting.png",
     tags: ["Python", "LightGBM", "Pandas", "NumPy", "Seaborn", "Matplotlib"],
     features: ["Sales prediction", "Data visualization", "Model optimization", "Trend analysis"],
     liveUrl: "https://github.com/henryIsHim/sales-forecasting",
