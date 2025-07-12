@@ -27,6 +27,19 @@ export const projects = [
   },
   {
     id: 3,
+    title: "BodyCheckPro Student Health Tracker",
+    type: "Full Stack",
+    description: "A robust student health tracking system with separate Web API backend and MVC frontend. Features complete CRUD operations for student records, physical measurements tracking, and image storage with RESTful API integration.",
+    image: "/bodycheckpro.png",
+    tags: ["ASP.NET Core", "C#", "SQLite", "Bootstrap", "RESTful API", "Docker"],
+    features: ["Student management system", "Physical measurements tracking", "Image upload storage", "RESTful API endpoints"],
+    liveUrl: "https://bodycheckpro-student.onrender.com",
+    githubUrl: "https://github.com/henryIsHim/bodycheckpro-student",
+    status: "Complete",
+    metrics: "Full API with Swagger documentation"
+  },
+  {
+    id: 4,
     title: "Modern E-Commerce Platform",
     type: "Full Stack",
     description: "A comprehensive e-commerce solution featuring shopping cart functionality, user authentication, product management, and secure payment integration. Built with modern React architecture and responsive design.",
@@ -39,7 +52,7 @@ export const projects = [
     metrics: "Built with modern stack"
   },
   {
-    id: 4,
+    id: 5,
     title: "Sales Forecasting ML Model",
     type: "Data Science",
     description: "Advanced machine learning model using LightGBM to predict 3-month item-level sales forecasts. Features data preprocessing, feature engineering, model optimization, and comprehensive visualization of sales trends and predictions.",
@@ -52,7 +65,7 @@ export const projects = [
     metrics: "Achieved 85+ accuracy"
   },
   {
-    id: 5,
+    id: 6,
     title: "Adore Flowers E-commerce",
     type: "Front End",
     description: "Beautiful and responsive flower shop website featuring elegant product galleries, interactive shopping experience, and modern UI design. Showcases various flower arrangements and bouquets with stunning visual presentation.",
@@ -65,7 +78,7 @@ export const projects = [
     metrics: "Mobile-first design"
   },
   {
-    id: 6,
+    id: 7,
     title: "Tailwaggers Pet Adoption",
     type: "Front End",
     description: "Heartwarming pet adoption website designed to connect loving families with adorable pets. Features interactive pet profiles, adoption process guidance, and user-friendly interface to help pets find their forever homes.",
