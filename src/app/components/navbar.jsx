@@ -6,12 +6,16 @@ import { useTheme } from '../contexts/ThemeContext';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('about');
+  const [activeSection, setActiveSection] = useState('home');
+  const [isScrolled, setIsScrolled] = useState(false);
   const { isDarkMode, toggleTheme } = useTheme();
 
   // Handle scroll and section detection
   useEffect(() => {
     const handleScroll = () => {
+      // Update scroll state for navbar styling
+      setIsScrolled(window.scrollY > 50);
+
       const sections = document.querySelectorAll('section[id]');
       const scrollPosition = window.scrollY + window.innerHeight / 3; // Adjust viewport offset
 
@@ -49,6 +53,7 @@ const Navbar = () => {
   }, [isOpen]);
 
   const navLinks = [
+    { href: '#home', label: 'Home' },
     { href: '#about', label: 'About' },
     { href: '#skills', label: 'Skills' },
     { href: '#projects', label: 'Projects' },
@@ -75,13 +80,17 @@ const Navbar = () => {
   };
 
   return (
-    <header className="sticky top-0 z-50 glass-effect border-b border-slate-300/30 dark:border-slate-600/30">
+    <header className={`sticky top-0 z-50 transition-all duration-300 ${
+      isScrolled 
+        ? 'backdrop-blur-md bg-white/80 dark:bg-slate-900/80' 
+        : 'bg-transparent'
+    }`}>
       <nav className="max-w-6xl mx-auto">
-        <div className="flex items-center justify-between px-4 py-3">
+        <div className="flex items-center justify-between px-4 py-6">
           {/* Logo */}
-          <a href="#about" onClick={(e) => scrollToSection(e, '#about')} className="relative z-50">
+          <a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="relative z-50">
             <h1 className="text-2xl font-bold">
-              <span className="text-blue-600 dark:text-brand-blue-400">Henry</span>
+              <span className="text-brand-blue-500 dark:text-brand-blue-500">Henry</span>
               <span className="text-slate-900 dark:text-slate-50">Dev</span>
             </h1>
           </a>
@@ -94,10 +103,10 @@ const Navbar = () => {
                   <a
                     href={link.href}
                     onClick={(e) => scrollToSection(e, link.href)}
-                    className={`relative py-2 text-gray-800 dark:text-slate-100 font-medium hover:text-brand-blue-400 transition-colors
-                      after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-0 after:bg-brand-blue-400 
+                    className={`relative py-2 text-gray-800 dark:text-slate-100 font-medium hover:text-brand-blue-500 transition-colors
+                      after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-0 after:bg-brand-blue-500 
                       after:transition-all after:duration-300 hover:after:w-full
-                      ${activeSection === link.href.slice(1) ? 'text-brand-blue-400 after:w-full' : ''}`}
+                      ${activeSection === link.href.slice(1) ? 'text-brand-blue-500 after:w-full' : ''}`}
                   >
                     {link.label}
                   </a>
@@ -108,7 +117,7 @@ const Navbar = () => {
             {/* Theme Toggle */}
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-full bg-slate-200/50 dark:bg-slate-700/50 text-gray-800 dark:text-slate-200 hover:text-brand-blue-400 hover:bg-slate-300/50 dark:hover:bg-slate-600/50 transition-all duration-200"
+              className="p-2 rounded-full bg-slate-200/50 dark:bg-slate-700/50 text-gray-800 dark:text-slate-200 hover:text-brand-blue-500 hover:bg-slate-300/50 dark:hover:bg-slate-600/50 transition-all duration-200"
               aria-label="Toggle theme"
             >
               {isDarkMode ? <FiSun className="w-5 h-5" /> : <FiMoon className="w-5 h-5" />}
@@ -119,7 +128,7 @@ const Navbar = () => {
           <div className="md:hidden flex items-center gap-2">
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-full bg-slate-200/50 dark:bg-slate-700/50 text-gray-800 dark:text-slate-200 hover:text-brand-blue-400 transition-all duration-200"
+              className="p-2 rounded-full bg-slate-200/50 dark:bg-slate-700/50 text-gray-800 dark:text-slate-200 hover:text-brand-blue-500 transition-all duration-200"
               aria-label="Toggle theme"
             >
               {isDarkMode ? <FiSun className="w-4 h-4" /> : <FiMoon className="w-4 h-4" />}
@@ -147,10 +156,7 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* Mobile Menu Overlay */}
-        {isOpen && (
-          <div className="fixed inset-0 bg-black bg-opacity-50 z-40" onClick={() => setIsOpen(false)} />
-        )}
+        {/* Mobile Menu Overlay - Removed for cleaner look */}
 
         {/* Mobile Menu */}
         <div
@@ -165,7 +171,7 @@ const Navbar = () => {
                 href={link.href}
                 onClick={(e) => scrollToSection(e, link.href)}
                 className={`px-4 py-2 text-base font-medium hover:bg-slate-200/50 dark:hover:bg-slate-700/50 transition-colors ${activeSection === link.href.slice(1)
-                  ? 'text-brand-blue-400'
+                  ? 'text-brand-blue-500'
                   : 'text-gray-800 dark:text-slate-100'
                   }`}
               >
