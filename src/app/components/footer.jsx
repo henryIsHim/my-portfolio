@@ -25,6 +25,7 @@ export default function Footer() {
             <h3 className="text-slate-900 dark:text-slate-50 font-semibold mb-4">Quick Links</h3>
             <nav className="flex flex-col space-y-2">
               <a href="#about" className="text-gray-700 dark:text-slate-200 hover:text-brand-blue-500 dark:hover:text-brand-blue-500 transition-colors duration-300">About</a>
+              <a href="#skills" className="text-gray-700 dark:text-slate-200 hover:text-brand-blue-500 dark:hover:text-brand-blue-500 transition-colors duration-300">Skills</a>
               <a href="#projects" className="text-gray-700 dark:text-slate-200 hover:text-brand-blue-500 dark:hover:text-brand-blue-500 transition-colors duration-300">Projects</a>
               <a href="#contact" className="text-gray-700 dark:text-slate-200 hover:text-brand-blue-500 dark:hover:text-brand-blue-500 transition-colors duration-300">Contact</a>
               <a 

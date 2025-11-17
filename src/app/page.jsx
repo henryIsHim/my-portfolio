@@ -165,10 +165,10 @@ export default function HomePage() {
               className="space-y-8"
             >
               <div className="flex items-center gap-4 mb-8">
-                <div className="p-4 bg-gradient-blue rounded-2xl shadow-lg">
-                  <FaBriefcase className="text-white text-2xl" />
+                <div className="p-3 bg-gradient-blue rounded-2xl shadow-lg">
+                  <FaBriefcase className="text-white text-xl" />
                 </div>
-                <h3 className="text-3xl font-bold gradient-text">Experience</h3>
+                <h3 className="text-2xl font-bold gradient-text">Experience</h3>
               </div>
 
               {/* Experience Card */}
@@ -180,11 +180,11 @@ export default function HomePage() {
                 className="w-full"
               >
                 <div className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-slate-200/50 dark:border-slate-700/50">
-                  <div className="flex items-center justify-between mb-4">
+                  <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-4 gap-2">
                     <h4 className="text-xl font-bold text-gray-900 dark:text-slate-100">Software Developer Intern</h4>
-                    <div className="flex items-center bg-brand-blue-100 dark:bg-brand-blue-900/30 px-3 py-1 rounded-lg">
-                      <FaCalendarAlt className="mr-2 text-brand-blue-600 dark:text-brand-blue-400 text-sm" />
-                      <span className="text-brand-blue-600 dark:text-brand-blue-400 font-medium text-sm">Aug 2025 - Dec 2025</span>
+                    <div className="flex items-center text-brand-blue-600 dark:text-brand-blue-400 text-sm">
+                      <FaCalendarAlt className="mr-2" />
+                      <span className="font-medium whitespace-nowrap">Aug 2025 - Dec 2025</span>
                     </div>
                   </div>
                   
@@ -201,14 +201,14 @@ export default function HomePage() {
                     <div>
                       <span className="text-sm font-medium text-gray-600 dark:text-slate-400 mr-3">Technologies:</span>
                       <div className="inline-flex flex-wrap gap-2 mt-1">
-                        <span className="px-3 py-1 bg-brand-blue-500 text-white rounded-lg text-sm font-medium">React</span>
-                        <span className="px-3 py-1 bg-brand-blue-500 text-white rounded-lg text-sm font-medium">Next.js</span>
-                        <span className="px-3 py-1 bg-brand-blue-500 text-white rounded-lg text-sm font-medium">Mantine UI</span>
-                        <span className="px-3 py-1 bg-brand-blue-500 text-white rounded-lg text-sm font-medium">Node.js</span>
-                        <span className="px-3 py-1 bg-brand-blue-500 text-white rounded-lg text-sm font-medium">Golang</span>
-                        <span className="px-3 py-1 bg-brand-blue-500 text-white rounded-lg text-sm font-medium">PostgreSQL</span>
-                        <span className="px-3 py-1 bg-brand-blue-500 text-white rounded-lg text-sm font-medium">REST API</span>
-                        <span className="px-3 py-1 bg-brand-blue-500 text-white rounded-lg text-sm font-medium">Docker</span>
+                        <span className="px-2 md:px-3 py-1 bg-slate-200/50 dark:bg-slate-700/50 text-gray-700 dark:text-slate-200 rounded-full text-xs font-medium border border-slate-400/30 dark:border-slate-600/30">React</span>
+                        <span className="px-2 md:px-3 py-1 bg-slate-200/50 dark:bg-slate-700/50 text-gray-700 dark:text-slate-200 rounded-full text-xs font-medium border border-slate-400/30 dark:border-slate-600/30">Next.js</span>
+                        <span className="px-2 md:px-3 py-1 bg-slate-200/50 dark:bg-slate-700/50 text-gray-700 dark:text-slate-200 rounded-full text-xs font-medium border border-slate-400/30 dark:border-slate-600/30">Mantine UI</span>
+                        <span className="px-2 md:px-3 py-1 bg-slate-200/50 dark:bg-slate-700/50 text-gray-700 dark:text-slate-200 rounded-full text-xs font-medium border border-slate-400/30 dark:border-slate-600/30">Node.js</span>
+                        <span className="px-2 md:px-3 py-1 bg-slate-200/50 dark:bg-slate-700/50 text-gray-700 dark:text-slate-200 rounded-full text-xs font-medium border border-slate-400/30 dark:border-slate-600/30">Golang</span>
+                        <span className="px-2 md:px-3 py-1 bg-slate-200/50 dark:bg-slate-700/50 text-gray-700 dark:text-slate-200 rounded-full text-xs font-medium border border-slate-400/30 dark:border-slate-600/30">PostgreSQL</span>
+                        <span className="px-2 md:px-3 py-1 bg-slate-200/50 dark:bg-slate-700/50 text-gray-700 dark:text-slate-200 rounded-full text-xs font-medium border border-slate-400/30 dark:border-slate-600/30">REST API</span>
+                        <span className="px-2 md:px-3 py-1 bg-slate-200/50 dark:bg-slate-700/50 text-gray-700 dark:text-slate-200 rounded-full text-xs font-medium border border-slate-400/30 dark:border-slate-600/30">Docker</span>
                       </div>
                     </div>
                   </div>
@@ -225,10 +225,10 @@ export default function HomePage() {
               className="space-y-8"
             >
               <div className="flex items-center gap-4 mb-8">
-                <div className="p-4 bg-gradient-blue rounded-2xl shadow-lg">
-                  <FaGraduationCap className="text-white text-2xl" />
+                <div className="p-3 bg-gradient-blue rounded-2xl shadow-lg">
+                  <FaGraduationCap className="text-white text-xl" />
                 </div>
-                <h3 className="text-3xl font-bold gradient-text">Education</h3>
+                <h3 className="text-2xl font-bold gradient-text">Education</h3>
               </div>
 
               {/* Education Card */}
@@ -240,11 +240,11 @@ export default function HomePage() {
                 className="w-full"
               >
                 <div className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-slate-200/50 dark:border-slate-700/50">
-                  <div className="flex items-center justify-between mb-4">
+                  <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-4 gap-2">
                     <h4 className="text-xl font-bold text-gray-900 dark:text-slate-100">B.Sc. in Information and Communication Technology</h4>
-                    <div className="flex items-center bg-brand-blue-100 dark:bg-brand-blue-900/30 px-3 py-1 rounded-lg">
-                      <FaCalendarAlt className="mr-2 text-brand-blue-600 dark:text-brand-blue-400 text-sm" />
-                      <span className="text-brand-blue-600 dark:text-brand-blue-400 font-medium text-sm">Jan 2023 - Dec 2026</span>
+                    <div className="flex items-center text-brand-blue-600 dark:text-brand-blue-400 text-sm">
+                      <FaCalendarAlt className="mr-2" />
+                      <span className="font-medium whitespace-nowrap">Jan 2023 - Dec 2026</span>
                     </div>
                   </div>
                   
@@ -305,7 +305,7 @@ export default function HomePage() {
       <Separator />
 
       {/* Contact Section */}
-      <section id="contact" className="max-w-3xl mx-auto px-4 py-8 md:py-16">
+      <section id="contact" className="max-w-3xl mx-auto py-8 md:py-16">
         <h2 className="text-2xl md:text-3xl font-bold text-center mb-3 gradient-text">Get in Touch</h2>
         <p className="text-center text-gray-800 dark:text-slate-200 mb-8 md:mb-12 max-w-md mx-auto px-4">
           I’m always open to discussing new projects, opportunities, or potential collaborations. Please feel free to reach out — I’ll respond promptly.
