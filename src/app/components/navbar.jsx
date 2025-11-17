@@ -50,6 +50,7 @@ const Navbar = () => {
 
   const navLinks = [
     { href: '#about', label: 'About' },
+    { href: '#skills', label: 'Skills' },
     { href: '#projects', label: 'Projects' },
     { href: '#contact', label: 'Contact' },
   ];
@@ -153,7 +154,7 @@ const Navbar = () => {
 
         {/* Mobile Menu */}
         <div
-          className={`fixed top-16 right-4 z-50 w-32 glass-effect rounded-lg shadow-lg border border-slate-300/30 dark:border-slate-600/30
+          className={`fixed top-16 right-4 z-50 w-32 bg-white dark:bg-slate-800 rounded-lg shadow-lg border border-slate-300/30 dark:border-slate-600/30
           transform transition-all duration-300 ease-in-out md:hidden
           ${isOpen ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 -translate-y-4 pointer-events-none'}`}
         >

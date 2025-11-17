@@ -1,6 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Apply Poppins font globally */
+* {
+  font-family: 'Poppins', sans-serif;
+}
 
 body {
   background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 50%, #e2e8f0 100%);
@@ -9,6 +16,8 @@ body {
   position: relative;
   overflow-x: hidden;
   transition: background 0.3s ease, color 0.3s ease;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
 }
 
 /* Dark theme overrides */

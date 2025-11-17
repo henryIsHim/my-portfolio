@@ -7,15 +7,18 @@ import Footer from "./components/footer";
 import ScrollToTop from "./components/scrollToTop";
 import { ThemeProvider } from "./contexts/ThemeContext";
 
-// Load fonts with CSS variable support
 const geistSans = Geist({
   subsets: ["latin"],
   variable: "--font-geist-sans",
+  display: 'swap', 
+  preload: true,
 });
 
 const geistMono = Geist_Mono({
   subsets: ["latin"],
   variable: "--font-geist-mono",
+  display: 'swap',
+  preload: false, 
 });
 
 export const metadata = {
@@ -40,7 +43,7 @@ export default function RootLayout({ children }) {
           }}
         />
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body className="antialiased" style={{fontFamily: 'Poppins, sans-serif'}}>
         <ThemeProvider>
           <div className="min-h-screen flex flex-col">
             <Navbar />
