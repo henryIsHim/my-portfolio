@@ -13,23 +13,33 @@ import TechStack from './components/techStack';
 export default function HomePage() {
   // --- TYPING ANIMATION STATE ---
   const [displayedText, setDisplayedText] = useState('');
+  const [currentTitleIndex, setCurrentTitleIndex] = useState(0);
   const [isTypingComplete, setIsTypingComplete] = useState(false);
-  const fullText = 'Full Stack Developer';
+  const titles = ['Full Stack Developer', 'ICT Undergraduate', 'AI Enthusiast'];
 
   useEffect(() => {
     let currentIndex = 0;
+    const currentTitle = titles[currentTitleIndex];
+    
     const typingInterval = setInterval(() => {
-      if (currentIndex <= fullText.length) {
-        setDisplayedText(fullText.slice(0, currentIndex));
+      if (currentIndex <= currentTitle.length) {
+        setDisplayedText(currentTitle.slice(0, currentIndex));
         currentIndex++;
       } else {
         setIsTypingComplete(true);
         clearInterval(typingInterval);
+        
+        // After typing is complete, wait 2 seconds then move to next title
+        setTimeout(() => {
+          setIsTypingComplete(false);
+          setDisplayedText('');
+          setCurrentTitleIndex((prev) => (prev + 1) % titles.length);
+        }, 2000);
       }
     }, 100); // 100ms delay between each character
 
     return () => clearInterval(typingInterval);
-  }, []);
+  }, [currentTitleIndex]);
 
   // --- FILTER STATE & LOGIC ---
   const typeOptions = [
