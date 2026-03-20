@@ -84,6 +84,13 @@ body::after {
   box-shadow: 0 0 20px rgba(99, 102, 241, 0.35);
 }
 
+/* Faster marquee on mobile */
+@media (max-width: 768px) {
+  .animate-marquee {
+    animation-duration: 8s;
+  }
+}
+
 /* Animated gradient text */
 .gradient-text {
   background: linear-gradient(135deg, #818cf8 0%, #6366f1 50%, #4f46e5 100%);

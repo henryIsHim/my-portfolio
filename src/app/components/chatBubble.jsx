@@ -195,7 +195,7 @@ export default function ChatBubble() {
                   onKeyDown={handleKeyDown}
                   placeholder="Ask about Henry..."
                   disabled={isLoading}
-                  className="flex-1 text-sm px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:border-brand-blue-400 dark:focus:border-brand-blue-500 transition-colors disabled:opacity-50"
+                  className="flex-1 text-base px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:border-brand-blue-400 dark:focus:border-brand-blue-500 transition-colors disabled:opacity-50"
                 />
                 <button
                   onClick={() => sendMessage()}

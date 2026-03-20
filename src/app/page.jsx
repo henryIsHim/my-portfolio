@@ -3,7 +3,7 @@ import Image from 'next/image';
 import ProjectCard from './components/projectCard';
 import { projects } from './data/projects';
 import Separator from './components/separator';
-import { FaLinkedin, FaGithub, FaDownload, FaEnvelope, FaUser, FaBriefcase, FaGraduationCap, FaReact, FaNodeJs, FaDocker, FaMedal } from 'react-icons/fa';
+import { FaLinkedin, FaGithub, FaDownload, FaEnvelope, FaUser, FaBriefcase, FaGraduationCap, FaReact, FaNodeJs, FaDocker, FaMedal, FaWhatsapp } from 'react-icons/fa';
 import { SiNextdotjs, SiMantine, SiGo, SiPostgresql } from 'react-icons/si';
 import { FiCheckCircle } from 'react-icons/fi';
 import { motion } from 'framer-motion';
@@ -133,14 +133,17 @@ export default function HomePage() {
 
           {/* Social Icons Row */}
           <div className="flex justify-center lg:justify-start gap-4 sm:gap-5">
-            <a href="mailto:winheinthuya.dev@gmail.com" target="_blank" rel="noopener noreferrer" aria-label="Email" className="text-slate-500 dark:text-slate-400 hover:text-red-600 dark:hover:text-red-400 active:text-red-600 dark:active:text-red-400 transition-colors text-xl sm:text-2xl">
+            <a href="mailto:winheinthuya.dev@gmail.com" target="_blank" rel="noopener noreferrer" aria-label="Email" className="text-slate-500 dark:text-slate-400 hover:text-brand-blue-500 dark:hover:text-brand-blue-400 active:text-brand-blue-500 dark:active:text-brand-blue-400 transition-colors text-xl sm:text-2xl">
               <FaEnvelope />
             </a>
-            <a href="https://www.linkedin.com/in/heinthuyawin" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-slate-500 dark:text-slate-400 hover:text-brand-blue-500 dark:hover:text-brand-blue-500 active:text-brand-blue-500 dark:active:text-brand-blue-500 transition-colors text-xl sm:text-2xl">
+            <a href="https://www.linkedin.com/in/heinthuyawin" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-slate-500 dark:text-slate-400 hover:text-brand-blue-500 dark:hover:text-brand-blue-400 active:text-brand-blue-500 dark:active:text-brand-blue-400 transition-colors text-xl sm:text-2xl">
               <FaLinkedin />
             </a>
-            <a href="https://github.com/henryIsHim" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 active:text-slate-900 dark:active:text-slate-100 transition-colors text-xl sm:text-2xl">
+            <a href="https://github.com/henryIsHim" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-slate-500 dark:text-slate-400 hover:text-brand-blue-500 dark:hover:text-brand-blue-400 active:text-brand-blue-500 dark:active:text-brand-blue-400 transition-colors text-xl sm:text-2xl">
               <FaGithub />
+            </a>
+            <a href="https://wa.me/66967515701" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="text-slate-500 dark:text-slate-400 hover:text-brand-blue-500 dark:hover:text-brand-blue-400 active:text-brand-blue-500 dark:active:text-brand-blue-400 transition-colors text-xl sm:text-2xl">
+              <FaWhatsapp />
             </a>
           </div>
         </motion.div>
@@ -167,7 +170,7 @@ export default function HomePage() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <p className="text-lg md:text-xl text-slate-700 dark:text-slate-300 leading-relaxed text-justify">
+            <p className="text-lg md:text-xl text-slate-700 dark:text-slate-300 leading-relaxed">
               I'm a passionate and results-oriented Full Stack Developer skilled in creating end-to-end web experiences. My expertise lies in front-end development using modern frameworks like React and Next.js, complemented by hands-on experience with backend technologies, API design, and database management. I excel at tackling complex technical challenges and am dedicated to writing clean, efficient, and scalable code to transform innovative concepts into impactful real-world applications.
             </p>
           </motion.div>
@@ -275,21 +278,31 @@ export default function HomePage() {
                 <h3 className="text-lg font-bold text-slate-800 dark:text-slate-100">Education</h3>
               </div>
               <div className="bg-white/70 dark:bg-slate-800/70 backdrop-blur-sm rounded-2xl p-5 shadow-sm border border-slate-200/50 dark:border-slate-700/50 hover:shadow-md transition-shadow duration-300">
-                {/* Title + year on same row */}
+                {/* Title + year badge (desktop only) */}
                 <div className="flex items-start justify-between gap-3 mb-2">
                   <h4 className="text-lg font-bold text-slate-900 dark:text-slate-100">Bachelor of Science in Information and Communication Technology</h4>
-                  <span className="inline-flex items-center text-xs font-medium text-brand-blue-500 bg-brand-blue-50 dark:bg-brand-blue-900/30 border border-brand-blue-200 dark:border-brand-blue-700/40 px-2.5 py-1 rounded-full whitespace-nowrap shrink-0">
+                  <span className="hidden md:inline-flex items-center text-xs font-medium text-brand-blue-500 bg-brand-blue-50 dark:bg-brand-blue-900/30 border border-brand-blue-200 dark:border-brand-blue-700/40 px-2.5 py-1 rounded-full whitespace-nowrap shrink-0">
                     2023 – 2026
                   </span>
                 </div>
-                {/* FCH badge */}
-                <div className="mb-3">
+                {/* Mobile: FCH + year side by side */}
+                <div className="flex md:hidden items-center gap-2 mb-2">
                   <span className="inline-flex items-center gap-1.5 text-xs font-medium text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-700/40 px-2.5 py-1 rounded-full whitespace-nowrap">
                     <FaMedal className="text-amber-500 text-xs" />
                     First Class Honors
                   </span>
+                  <span className="inline-flex items-center text-xs font-medium text-brand-blue-500 bg-brand-blue-50 dark:bg-brand-blue-900/30 border border-brand-blue-200 dark:border-brand-blue-700/40 px-2.5 py-1 rounded-full whitespace-nowrap">
+                    2023 – 2026
+                  </span>
                 </div>
-                <p className="text-base text-brand-blue-500 font-medium mb-2">Rangsit University · Thailand</p>
+                {/* University + FCH badge (desktop only) */}
+                <div className="flex flex-wrap items-center gap-2 mb-2">
+                  <p className="text-base text-brand-blue-500 font-medium">Rangsit University · Thailand</p>
+                  <span className="hidden md:inline-flex items-center gap-1.5 text-xs font-medium text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-700/40 px-2.5 py-1 rounded-full whitespace-nowrap">
+                    <FaMedal className="text-amber-500 text-xs" />
+                    First Class Honors
+                  </span>
+                </div>
                 <p className="text-base text-slate-600 dark:text-slate-400 leading-relaxed">
                   Pursued a Bachelor's degree focused on software engineering, web development, and emerging technologies.
                 </p>
