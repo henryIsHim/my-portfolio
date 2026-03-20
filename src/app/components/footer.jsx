@@ -12,11 +12,11 @@ export default function Footer() {
               <span className="text-brand-blue-500 dark:text-brand-blue-500">Henry</span>
               <span className="text-slate-900 dark:text-slate-50">Dev</span>
             </h2>
-            <p className="text-gray-700 dark:text-slate-200 mb-4">
+            <p className="text-slate-700 dark:text-slate-200 mb-4">
               Building digital experiences with passion and purpose
             </p>
-            <p className="text-sm text-gray-600 dark:text-slate-300">
-              Based in Thailand 🇹🇭
+            <p className="text-sm text-slate-600 dark:text-slate-300">
+              Based in Thailand <span aria-label="Thailand flag">🇹🇭</span>
             </p>
           </div>
 
@@ -24,15 +24,15 @@ export default function Footer() {
           <div className="text-center md:text-left">
             <h3 className="text-slate-900 dark:text-slate-50 font-semibold mb-4">Quick Links</h3>
             <nav className="flex flex-col space-y-2">
-              <a href="#about" className="text-gray-700 dark:text-slate-200 hover:text-brand-blue-500 dark:hover:text-brand-blue-500 transition-colors duration-300">About</a>
-              <a href="#skills" className="text-gray-700 dark:text-slate-200 hover:text-brand-blue-500 dark:hover:text-brand-blue-500 transition-colors duration-300">Skills</a>
-              <a href="#projects" className="text-gray-700 dark:text-slate-200 hover:text-brand-blue-500 dark:hover:text-brand-blue-500 transition-colors duration-300">Projects</a>
-              <a href="#contact" className="text-gray-700 dark:text-slate-200 hover:text-brand-blue-500 dark:hover:text-brand-blue-500 transition-colors duration-300">Contact</a>
+              <a href="#about" className="text-slate-700 dark:text-slate-200 hover:text-brand-blue-500 dark:hover:text-brand-blue-500 transition-colors duration-300">About</a>
+              <a href="#skills" className="text-slate-700 dark:text-slate-200 hover:text-brand-blue-500 dark:hover:text-brand-blue-500 transition-colors duration-300">Skills</a>
+              <a href="#projects" className="text-slate-700 dark:text-slate-200 hover:text-brand-blue-500 dark:hover:text-brand-blue-500 transition-colors duration-300">Projects</a>
+              <a href="#contact" className="text-slate-700 dark:text-slate-200 hover:text-brand-blue-500 dark:hover:text-brand-blue-500 transition-colors duration-300">Contact</a>
               <a 
                 href="/henry-resume.pdf" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="text-gray-700 dark:text-slate-200 hover:text-brand-blue-500 dark:hover:text-brand-blue-500 transition-colors duration-300"
+                className="text-slate-700 dark:text-slate-200 hover:text-brand-blue-500 dark:hover:text-brand-blue-500 transition-colors duration-300"
               >
                 Resume
               </a>
@@ -45,7 +45,7 @@ export default function Footer() {
             <div className="flex justify-center md:justify-start space-x-4">
               <a
                 href="mailto:winheinthuya.dev@gmail.com"
-                className="bg-slate-200/50 dark:bg-slate-700/50 p-3 rounded-full text-gray-700 dark:text-slate-200 hover:bg-brand-blue-500 dark:hover:bg-brand-blue-500 hover:text-white transition-all duration-300"
+                className="bg-slate-200/50 dark:bg-slate-700/50 p-3 rounded-full text-slate-700 dark:text-slate-200 hover:bg-brand-blue-500 dark:hover:bg-brand-blue-500 hover:text-white transition-all duration-300"
                 aria-label="Email"
               >
                 <FaEnvelope className="w-5 h-5" />
@@ -54,7 +54,7 @@ export default function Footer() {
                 href="https://www.linkedin.com/in/heinthuyawin"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-slate-200/50 dark:bg-slate-700/50 p-3 rounded-full text-gray-700 dark:text-slate-200 hover:bg-brand-blue-500 dark:hover:bg-brand-blue-500 hover:text-white transition-all duration-300"
+                className="bg-slate-200/50 dark:bg-slate-700/50 p-3 rounded-full text-slate-700 dark:text-slate-200 hover:bg-brand-blue-500 dark:hover:bg-brand-blue-500 hover:text-white transition-all duration-300"
                 aria-label="LinkedIn"
               >
                 <FaLinkedin className="w-5 h-5" />
@@ -63,7 +63,7 @@ export default function Footer() {
                 href="https://github.com/henryIsHim"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-slate-200/50 dark:bg-slate-700/50 p-3 rounded-full text-gray-700 dark:text-slate-200 hover:bg-brand-blue-500 dark:hover:bg-brand-blue-500 hover:text-white transition-all duration-300"
+                className="bg-slate-200/50 dark:bg-slate-700/50 p-3 rounded-full text-slate-700 dark:text-slate-200 hover:bg-brand-blue-500 dark:hover:bg-brand-blue-500 hover:text-white transition-all duration-300"
                 aria-label="GitHub"
               >
                 <FaGithub className="w-5 h-5" />
@@ -75,7 +75,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="border-t border-slate-300/30 dark:border-slate-600/30 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-sm text-gray-700 dark:text-slate-200 mb-4 md:mb-0">
+            <p className="text-sm text-slate-700 dark:text-slate-200 mb-4 md:mb-0">
               &copy; {new Date().getFullYear()} Hein Thuya Win. All rights reserved.
             </p>
           </div>

@@ -1,29 +1,27 @@
 // src/app/layout.js
 
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/navbar";
 import Footer from "./components/footer";
-import ScrollToTop from "./components/scrollToTop";
+import ChatBubble from "./components/chatBubble";
 import { ThemeProvider } from "./contexts/ThemeContext";
 
-const geistSans = Geist({
-  subsets: ["latin"],
-  variable: "--font-geist-sans",
-  display: 'swap', 
-  preload: true,
-});
-
-const geistMono = Geist_Mono({
-  subsets: ["latin"],
-  variable: "--font-geist-mono",
-  display: 'swap',
-  preload: false, 
-});
-
 export const metadata = {
-  title: "Henry's Portfolio",
-  description: "Showcasing projects",
+  title: "Hein Thuya Win — Full Stack Developer",
+  description: "Portfolio of Hein Thuya Win (Henry), a Full Stack Developer and ICT undergraduate based in Thailand. Specializing in React, Next.js, TypeScript, and AI-powered applications.",
+  keywords: ["Full Stack Developer", "React", "Next.js", "TypeScript", "AI", "Portfolio", "Thailand", "Hein Thuya Win", "Henry"],
+  authors: [{ name: "Hein Thuya Win" }],
+  openGraph: {
+    type: "website",
+    title: "Hein Thuya Win — Full Stack Developer",
+    description: "Portfolio of Hein Thuya Win (Henry), a Full Stack Developer and ICT undergraduate based in Thailand. Specializing in React, Next.js, TypeScript, and AI-powered applications.",
+    siteName: "Henry's Portfolio",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Hein Thuya Win — Full Stack Developer",
+    description: "Portfolio of Hein Thuya Win (Henry), a Full Stack Developer and ICT undergraduate based in Thailand. Specializing in React, Next.js, TypeScript, and AI-powered applications.",
+  },
 };
 
 export default function RootLayout({ children }) {
@@ -35,7 +33,7 @@ export default function RootLayout({ children }) {
             __html: `
               (function() {
                 const savedTheme = localStorage.getItem('theme');
-                if (savedTheme === 'dark' || (!savedTheme && true)) {
+                if (savedTheme === 'dark' || !savedTheme) {
                   document.documentElement.classList.add('dark');
                 }
               })();
@@ -43,12 +41,12 @@ export default function RootLayout({ children }) {
           }}
         />
       </head>
-      <body className="antialiased" style={{fontFamily: 'Poppins, sans-serif'}}>
+      <body className="antialiased">
         <ThemeProvider>
           <div className="min-h-screen flex flex-col">
             <Navbar />
-            <main className="flex-grow max-w-6xl mx-auto px-4 py-8 w-full">{children}</main>
-            <ScrollToTop />
+            <main className="flex-grow max-w-6xl mx-auto px-4 pt-24 pb-8 w-full">{children}</main>
+            <ChatBubble />
             <Footer />
           </div>
         </ThemeProvider>

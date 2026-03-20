@@ -3,8 +3,9 @@ import Image from 'next/image';
 import ProjectCard from './components/projectCard';
 import { projects } from './data/projects';
 import Separator from './components/separator';
-import { FaLinkedin, FaGithub, FaDownload, FaEnvelope, FaUser, FaBriefcase, FaGraduationCap, FaCalendarAlt, FaMapMarkerAlt, FaReact, FaNodeJs, FaDocker, FaMedal } from 'react-icons/fa';
+import { FaLinkedin, FaGithub, FaDownload, FaEnvelope, FaUser, FaBriefcase, FaGraduationCap, FaReact, FaNodeJs, FaDocker, FaMedal } from 'react-icons/fa';
 import { SiNextdotjs, SiMantine, SiGo, SiPostgresql } from 'react-icons/si';
+import { FiCheckCircle } from 'react-icons/fi';
 import { motion } from 'framer-motion';
 import { useState, useMemo, useEffect } from 'react';
 import ContactForm from './components/contactForm';
@@ -44,9 +45,9 @@ export default function HomePage() {
   // --- FILTER STATE & LOGIC ---
   const typeOptions = [
     'All',
-    'Full Stack',
-    'Front End',
-    'Back End',
+    'Fullstack',
+    'Frontend',
+    'Backend',
     'Data Science',
   ];
   const [selectedType, setSelectedType] = useState('All');
@@ -88,13 +89,13 @@ export default function HomePage() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
         >
-          <p className="text-lg md:text-xl text-gray-600 dark:text-slate-400 mb-2">Hello, I'm</p>
+          <p className="text-lg md:text-xl text-slate-600 dark:text-slate-400 mb-2">Hello, I'm</p>
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight">
             <span className="gradient-text">Hein Thuya Win</span>
           </h1>
-          <h2 className="text-lg sm:text-xl md:text-2xl lg:text-2xl text-gray-700 dark:text-slate-300 font-medium mb-6 lg:mb-8 min-h-[2em] flex items-center">
+          <h2 className="text-lg sm:text-xl md:text-2xl lg:text-2xl text-slate-700 dark:text-slate-300 font-medium mb-6 lg:mb-8 min-h-[2em] flex items-center">
             <span>{displayedText}</span>
-            <span className={`ml-1 text-brand-blue-500 ${isTypingComplete ? 'animate-pulse' : 'animate-pulse'}`}>
+            <span aria-hidden="true" className="ml-1 text-brand-blue-500 animate-pulse">
               |
             </span>
           </h2>
@@ -132,13 +133,13 @@ export default function HomePage() {
 
           {/* Social Icons Row */}
           <div className="flex justify-center lg:justify-start gap-4 sm:gap-5">
-            <a href="mailto:heinthuyawin@gmail.com" target="_blank" rel="noopener noreferrer" aria-label="Email" className="text-slate-500 dark:text-slate-400 hover:text-red-600 dark:hover:text-red-400 active:text-red-600 dark:active:text-red-400 transition-colors text-xl sm:text-2xl">
+            <a href="mailto:winheinthuya.dev@gmail.com" target="_blank" rel="noopener noreferrer" aria-label="Email" className="text-slate-500 dark:text-slate-400 hover:text-red-600 dark:hover:text-red-400 active:text-red-600 dark:active:text-red-400 transition-colors text-xl sm:text-2xl">
               <FaEnvelope />
             </a>
             <a href="https://www.linkedin.com/in/heinthuyawin" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-slate-500 dark:text-slate-400 hover:text-brand-blue-500 dark:hover:text-brand-blue-500 active:text-brand-blue-500 dark:active:text-brand-blue-500 transition-colors text-xl sm:text-2xl">
               <FaLinkedin />
             </a>
-            <a href="https://github.com/henryIsHim" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-slate-500 dark:text-slate-400 hover:text-gray-900 dark:hover:text-gray-200 active:text-gray-900 dark:active:text-gray-200 transition-colors text-xl sm:text-2xl">
+            <a href="https://github.com/henryIsHim" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 active:text-slate-900 dark:active:text-slate-100 transition-colors text-xl sm:text-2xl">
               <FaGithub />
             </a>
           </div>
@@ -148,128 +149,153 @@ export default function HomePage() {
       <Separator />
 
       {/* About Section */}
-      <section id="about" className="py-8 md:py-16">
-        <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 gradient-text">About Me</h2>
-        <div className="max-w-6xl mx-auto">
-          {/* Description */}
+      <section id="about" className="py-8 md:py-20">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="mb-10 text-center"
+        >
+          <h2 className="text-2xl md:text-3xl font-bold gradient-text">About Me</h2>
+        </motion.div>
+
+        <div className="space-y-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="max-w-4xl mx-auto mb-16"
           >
-            <p className="text-base md:text-lg text-gray-800 dark:text-slate-200 mb-6 text-justify">
+            <p className="text-lg md:text-xl text-slate-700 dark:text-slate-300 leading-relaxed text-justify">
               I'm a passionate and results-oriented Full Stack Developer skilled in creating end-to-end web experiences. My expertise lies in front-end development using modern frameworks like React and Next.js, complemented by hands-on experience with backend technologies, API design, and database management. I excel at tackling complex technical challenges and am dedicated to writing clean, efficient, and scalable code to transform innovative concepts into impactful real-world applications.
             </p>
           </motion.div>
 
-          {/* Experience & Education Stack */}
-          <div className="max-w-4xl mx-auto space-y-16">
-            {/* Experience Section */}
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="space-y-8"
-            >
-              <div className="flex items-center gap-4 mb-8">
-                <div className="p-3 bg-gradient-blue rounded-2xl shadow-lg">
-                  <FaBriefcase className="text-white text-xl" />
+          {/* Experience + Education */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.15 }}
+            className="space-y-8"
+          >
+            {/* Experience */}
+            <div>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="p-2.5 bg-gradient-blue rounded-xl shadow">
+                  <FaBriefcase className="text-white text-sm" />
                 </div>
-                <h3 className="text-2xl font-bold gradient-text">Experience</h3>
+                <h3 className="text-lg font-bold text-slate-800 dark:text-slate-100">Experience</h3>
               </div>
+              <div>
+                {[
+                  {
+                    title: 'AI Prototyping Engineer',
+                    company: 'Newl App',
+                    meta: 'Remote',
+                    period: 'Feb – Mar 2026',
+                    bullets: [
+                      'Built a full-stack AI career simulator using React, TypeScript & Supabase, powered by an LLM multi-agent pipeline with real-time web grounding via Tavily Search.',
+                      'Engineered a 3-agent orchestration system (Research Architect, Wealth Calculator, Scene Synthesizer) with parallel scene generation and semantic validation.',
+                    ],
+                    tags: ['React', 'TypeScript', 'Supabase', 'PostgreSQL', 'Edge Functions', 'LLM'],
+                  },
+                  {
+                    title: 'Full Stack Developer',
+                    company: 'Scarlett Panda',
+                    meta: 'Remote',
+                    period: 'Nov 2025 – Jan 2026',
+                    bullets: [
+                      'Built production features with Svelte & Python (FastAPI) — onboarding flows, storybook content generation, and a referral challenge system.',
+                      'Optimized LLM prompt logic for AI story consistency and integrated Supabase for auth, storage, and backend services.',
+                    ],
+                    tags: ['Svelte', 'Python', 'FastAPI', 'Supabase', 'LLM', 'PostgreSQL'],
+                  },
+                  {
+                    title: 'Software Developer Intern',
+                    company: 'Issa Compass',
+                    meta: 'Bangkok, Thailand',
+                    period: 'Aug – Dec 2025',
+                    bullets: [
+                      'Built an internal AI workflow automation tool with React, Next.js, TypeScript & Golang (Gin) to automate and evaluate customer inquiry responses at scale.',
+                      'Designed PostgreSQL schemas via TablePlus and built REST APIs to manage conversations, logs, and application data.',
+                    ],
+                    tags: ['React', 'Next.js', 'TypeScript', 'Golang', 'PostgreSQL', 'Git'],
+                  },
+                ].map((exp, i, arr) => (
+                  <div key={i} className="flex items-stretch">
 
-              {/* Experience Card */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="w-full"
-              >
-                <div className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-slate-200/50 dark:border-slate-700/50">
-                  <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-4 gap-2">
-                    <h4 className="text-xl font-bold text-gray-900 dark:text-slate-100">Software Developer Intern</h4>
-                    <div className="flex items-center text-brand-blue-600 dark:text-brand-blue-400 text-sm">
-                      <FaCalendarAlt className="mr-2" />
-                      <span className="font-medium whitespace-nowrap">Aug 2025 - Dec 2025</span>
+                    {/* Date — desktop only */}
+                    <div className="hidden md:flex md:w-48 shrink-0 pr-5 items-start justify-end">
+                      <span className="mt-1 text-sm font-semibold text-slate-700 dark:text-slate-200 whitespace-nowrap">{exp.period}</span>
                     </div>
-                  </div>
-                  
-                  <div className="flex items-center mb-3">
-                    <FaMapMarkerAlt className="mr-2 text-brand-blue-500" />
-                    <span className="text-brand-blue-500 font-medium">Issa Compass, Thailand</span>
-                  </div>
-                  
-                  <p className="text-gray-700 dark:text-slate-300 leading-relaxed mb-4">
-                    Developing modern web applications using React, Next.js, and Node.js. Collaborating with senior developers to build scalable solutions.
-                  </p>
-                  
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <span className="text-sm font-medium text-gray-600 dark:text-slate-400 mr-3">Technologies:</span>
-                      <div className="inline-flex flex-wrap gap-2 mt-1">
-                        <span className="px-2 md:px-3 py-1 bg-slate-200/50 dark:bg-slate-700/50 text-gray-700 dark:text-slate-200 rounded-full text-xs font-medium border border-slate-400/30 dark:border-slate-600/30">React</span>
-                        <span className="px-2 md:px-3 py-1 bg-slate-200/50 dark:bg-slate-700/50 text-gray-700 dark:text-slate-200 rounded-full text-xs font-medium border border-slate-400/30 dark:border-slate-600/30">Next.js</span>
-                        <span className="px-2 md:px-3 py-1 bg-slate-200/50 dark:bg-slate-700/50 text-gray-700 dark:text-slate-200 rounded-full text-xs font-medium border border-slate-400/30 dark:border-slate-600/30">Mantine UI</span>
-                        <span className="px-2 md:px-3 py-1 bg-slate-200/50 dark:bg-slate-700/50 text-gray-700 dark:text-slate-200 rounded-full text-xs font-medium border border-slate-400/30 dark:border-slate-600/30">Node.js</span>
-                        <span className="px-2 md:px-3 py-1 bg-slate-200/50 dark:bg-slate-700/50 text-gray-700 dark:text-slate-200 rounded-full text-xs font-medium border border-slate-400/30 dark:border-slate-600/30">Golang</span>
-                        <span className="px-2 md:px-3 py-1 bg-slate-200/50 dark:bg-slate-700/50 text-gray-700 dark:text-slate-200 rounded-full text-xs font-medium border border-slate-400/30 dark:border-slate-600/30">PostgreSQL</span>
-                        <span className="px-2 md:px-3 py-1 bg-slate-200/50 dark:bg-slate-700/50 text-gray-700 dark:text-slate-200 rounded-full text-xs font-medium border border-slate-400/30 dark:border-slate-600/30">REST API</span>
-                        <span className="px-2 md:px-3 py-1 bg-slate-200/50 dark:bg-slate-700/50 text-gray-700 dark:text-slate-200 rounded-full text-xs font-medium border border-slate-400/30 dark:border-slate-600/30">Docker</span>
+
+                    {/* Dot + connecting line */}
+                    <div className="flex flex-col items-center w-5 shrink-0">
+                      <div className="mt-1 w-4 h-4 rounded-full bg-brand-blue-500 ring-4 ring-brand-blue-100 dark:ring-brand-blue-900/60 shrink-0 z-10" />
+                      {i < arr.length - 1 && (
+                        <div className="flex-1 w-0.5 bg-brand-blue-500/35 mt-2 mb-3" />
+                      )}
+                    </div>
+
+                    {/* Job content */}
+                    <div className="flex-1 pb-10 pl-4 md:pl-6">
+                      <div className="flex items-start justify-between gap-2 mb-1">
+                        <h4 className="text-base md:text-lg font-bold text-slate-900 dark:text-slate-100 leading-snug">{exp.title}</h4>
+                        <span className="md:hidden text-[11px] font-semibold text-brand-blue-500 whitespace-nowrap shrink-0 mt-1">{exp.period}</span>
+                      </div>
+                      <p className="text-base text-brand-blue-500 font-medium mb-3">{exp.company} · {exp.meta}</p>
+                      <ul className="space-y-2 mb-4">
+                        {exp.bullets.map((point, j) => (
+                          <li key={j} className="flex gap-2 text-base text-slate-600 dark:text-slate-400">
+                            <FiCheckCircle className="shrink-0 text-brand-blue-500 mt-[3px]" size={15} />
+                            <span className="leading-relaxed">{point}</span>
+                          </li>
+                        ))}
+                      </ul>
+                      <div className="flex flex-wrap gap-1.5">
+                        {exp.tags.map(tech => (
+                          <span key={tech} className="px-2 py-0.5 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 rounded-md text-xs font-medium">{tech}</span>
+                        ))}
                       </div>
                     </div>
-                  </div>
-                </div>
-              </motion.div>
-            </motion.div>
 
-            {/* Education Section */}
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="space-y-8"
-            >
-              <div className="flex items-center gap-4 mb-8">
-                <div className="p-3 bg-gradient-blue rounded-2xl shadow-lg">
-                  <FaGraduationCap className="text-white text-xl" />
-                </div>
-                <h3 className="text-2xl font-bold gradient-text">Education</h3>
+                  </div>
+                ))}
               </div>
+            </div>
 
-              {/* Education Card */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-                className="w-full"
-              >
-                <div className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-slate-200/50 dark:border-slate-700/50">
-                  <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-4 gap-2">
-                    <h4 className="text-xl font-bold text-gray-900 dark:text-slate-100">B.Sc. in Information and Communication Technology</h4>
-                    <div className="flex items-center text-brand-blue-600 dark:text-brand-blue-400 text-sm">
-                      <FaCalendarAlt className="mr-2" />
-                      <span className="font-medium whitespace-nowrap">Jan 2023 - Dec 2026</span>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-center mb-3">
-                    <FaMapMarkerAlt className="mr-2 text-brand-blue-500" />
-                    <span className="text-brand-blue-500 font-medium">Rangsit University</span>
-                  </div>
-                  
-                  <p className="text-gray-700 dark:text-slate-300 leading-relaxed">
-                    Currently pursuing a Bachelor's degree with focus on software engineering, web development, and emerging technologies. GPA: <span className="font-bold text-brand-blue-500">3.8/4.0</span>
-                  </p>
+            {/* Education */}
+            <div>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="p-2.5 bg-gradient-blue rounded-xl shadow">
+                  <FaGraduationCap className="text-white text-sm" />
                 </div>
-              </motion.div>
-            </motion.div>
-          </div>
+                <h3 className="text-lg font-bold text-slate-800 dark:text-slate-100">Education</h3>
+              </div>
+              <div className="bg-white/70 dark:bg-slate-800/70 backdrop-blur-sm rounded-2xl p-5 shadow-sm border border-slate-200/50 dark:border-slate-700/50 hover:shadow-md transition-shadow duration-300">
+                {/* Title + year on same row */}
+                <div className="flex items-start justify-between gap-3 mb-2">
+                  <h4 className="text-lg font-bold text-slate-900 dark:text-slate-100">Bachelor of Science in Information and Communication Technology</h4>
+                  <span className="inline-flex items-center text-xs font-medium text-brand-blue-500 bg-brand-blue-50 dark:bg-brand-blue-900/30 border border-brand-blue-200 dark:border-brand-blue-700/40 px-2.5 py-1 rounded-full whitespace-nowrap shrink-0">
+                    2023 – 2026
+                  </span>
+                </div>
+                {/* FCH badge */}
+                <div className="mb-3">
+                  <span className="inline-flex items-center gap-1.5 text-xs font-medium text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-700/40 px-2.5 py-1 rounded-full whitespace-nowrap">
+                    <FaMedal className="text-amber-500 text-xs" />
+                    First Class Honors
+                  </span>
+                </div>
+                <p className="text-base text-brand-blue-500 font-medium mb-2">Rangsit University · Thailand</p>
+                <p className="text-base text-slate-600 dark:text-slate-400 leading-relaxed">
+                  Pursued a Bachelor's degree focused on software engineering, web development, and emerging technologies.
+                </p>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </section>
 
@@ -292,7 +318,7 @@ export default function HomePage() {
               className={`px-4 py-2 rounded-full font-medium border transition-colors duration-200 focus:outline-none
                 ${selectedType === type
                   ? 'bg-brand-blue-600 text-white border-brand-blue-600 shadow-md blue-glow'
-                  : 'glass-effect text-gray-800 dark:text-slate-200 border-slate-400 dark:border-slate-600 hover:border-brand-blue-500 dark:hover:border-brand-blue-500 hover:text-brand-blue-500 dark:hover:text-brand-blue-500'}
+                  : 'glass-effect text-slate-800 dark:text-slate-200 border-slate-400 dark:border-slate-600 hover:border-brand-blue-500 dark:hover:border-brand-blue-500 hover:text-brand-blue-500 dark:hover:text-brand-blue-500'}
               `}
             >
               {type}
@@ -315,14 +341,16 @@ export default function HomePage() {
       <Separator />
 
       {/* Contact Section */}
-      <section id="contact" className="max-w-3xl mx-auto py-8 md:py-16">
+      <section id="contact" className="py-8 md:py-16">
         <h2 className="text-2xl md:text-3xl font-bold text-center mb-3 gradient-text">Get in Touch</h2>
-        <p className="text-center text-gray-800 dark:text-slate-200 mb-8 md:mb-12 max-w-md mx-auto px-4">
-          I’m always open to discussing new projects, opportunities, or potential collaborations. Please feel free to reach out — I’ll respond promptly.
+        <p className="text-center text-slate-800 dark:text-slate-200 mb-10 max-w-md mx-auto px-4">
+          I’m always open to discussing new projects, opportunities, or potential collaborations. Feel free to reach out — I’ll respond promptly.
         </p>
 
         {/* Contact Form */}
-        <ContactForm />
+        <div className="max-w-2xl mx-auto w-full">
+          <ContactForm />
+        </div>
       </section>
     </main>
   );
