@@ -1,4 +1,4 @@
-import { FaLinkedin, FaGithub, FaEnvelope } from 'react-icons/fa';
+import { FaLinkedin, FaGithub, FaEnvelope, FaWhatsapp } from 'react-icons/fa';
 
 export default function Footer() {
   return (
@@ -67,6 +67,15 @@ export default function Footer() {
                 aria-label="GitHub"
               >
                 <FaGithub className="w-5 h-5" />
+              </a>
+              <a
+                href="https://wa.me/66967515701"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-slate-200/50 dark:bg-slate-700/50 p-3 rounded-full text-slate-700 dark:text-slate-200 hover:bg-brand-blue-500 dark:hover:bg-brand-blue-500 hover:text-white transition-all duration-300"
+                aria-label="WhatsApp"
+              >
+                <FaWhatsapp className="w-5 h-5" />
               </a>
             </div>
           </div>
