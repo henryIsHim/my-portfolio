@@ -5,6 +5,7 @@ import "./globals.css";
 import Navbar from "./components/navbar";
 import Footer from "./components/footer";
 import ScrollToTop from "./components/scrollToTop";
+import ChatBubble from "./components/chatBubble";
 import { ThemeProvider } from "./contexts/ThemeContext";
 
 const geistSans = Geist({
@@ -49,6 +50,7 @@ export default function RootLayout({ children }) {
             <Navbar />
             <main className="flex-grow max-w-6xl mx-auto px-4 py-8 w-full">{children}</main>
             <ScrollToTop />
+            <ChatBubble />
             <Footer />
           </div>
         </ThemeProvider>
