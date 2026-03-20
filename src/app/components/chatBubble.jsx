@@ -4,6 +4,16 @@ import { useState, useRef, useEffect } from 'react';
 import { FiMessageSquare, FiX, FiSend } from 'react-icons/fi';
 import { motion, AnimatePresence } from 'framer-motion';
 
+const renderContent = (text) => {
+  const emailRegex = /([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})/g;
+  const parts = text.split(emailRegex);
+  return parts.map((part, i) =>
+    emailRegex.test(part)
+      ? <a key={i} href={`mailto:${part}`} className="underline hover:opacity-80 transition-opacity">{part}</a>
+      : part
+  );
+};
+
 const SUGGESTED_QUESTIONS = [
   "What are Henry's top skills?",
   "Tell me about his projects",
@@ -57,6 +67,7 @@ export default function ChatBubble() {
         }),
       });
 
+      if (response.status === 503) throw new Error('not_configured');
       if (!response.ok) throw new Error('Request failed');
 
       const reader = response.body.getReader();
@@ -73,12 +84,14 @@ export default function ChatBubble() {
           return updated;
         });
       }
-    } catch {
+    } catch (err) {
       setMessages((prev) => {
         const updated = [...prev];
         updated[updated.length - 1] = {
           role: 'assistant',
-          content: 'Sorry, something went wrong. Please try again!',
+          content: err.message === 'not_configured'
+            ? "The AI assistant isn't available right now. Feel free to reach out to Henry directly at: winheinthuyawin.dev@gmail.com"
+            : 'Sorry, something went wrong. Please try again!',
         };
         return updated;
       });
@@ -142,7 +155,7 @@ export default function ChatBubble() {
                         : 'bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 rounded-bl-sm'
                     }`}
                   >
-                    {msg.content || (
+                    {msg.content ? renderContent(msg.content) : (
                       <span className="flex gap-1 items-center py-0.5">
                         <span className="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce [animation-delay:0ms]" />
                         <span className="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce [animation-delay:150ms]" />

@@ -1,11 +1,10 @@
 "use client";
 import { motion } from 'framer-motion';
-import { useState, useEffect } from 'react';
-import { 
-  FaReact, 
-  FaNodeJs, 
-  FaDatabase, 
-  FaGitAlt, 
+import { useTheme } from '../contexts/ThemeContext';
+import {
+  FaReact,
+  FaNodeJs,
+  FaGitAlt,
   FaDocker,
   FaPython,
   FaJs,
@@ -16,7 +15,7 @@ import {
   FaLinux,
   FaJava
 } from 'react-icons/fa';
-import { 
+import {
   SiNextdotjs,
   SiTailwindcss,
   SiMongodb,
@@ -24,115 +23,142 @@ import {
   SiMysql,
   SiFramer,
   SiVercel,
-  SiNetlify,
   SiTypescript,
   SiExpress,
   SiDotnet,
   SiGo,
-  SiSupabase
+  SiSupabase,
+  SiSvelte,
+  SiFastapi,
 } from 'react-icons/si';
 
 const TechStack = () => {
-  const [isMounted, setIsMounted] = useState(false);
+  const { isDarkMode } = useTheme();
 
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
+  const coreSkills = [
+    { name: 'React',       icon: FaReact,      color: '#61DAFB', subtitle: 'Frontend Core' },
+    { name: 'Next.js',     icon: SiNextdotjs,  color: isDarkMode ? '#ffffff' : '#1e1b4b', subtitle: 'App Framework' },
+    { name: 'TypeScript',  icon: SiTypescript, color: '#3178C6', subtitle: 'Type-Safe Dev' },
+    { name: 'Node.js',     icon: FaNodeJs,     color: '#339933', subtitle: 'Backend Core' },
+    { name: 'PostgreSQL',  icon: SiPostgresql, color: '#336791', subtitle: 'Primary DB' },
+    { name: 'Supabase',    icon: SiSupabase,   color: '#3ECF8E', subtitle: 'Auth & BaaS' },
+  ];
 
-  const techCategories = [
+  const allTech = [
     {
-      title: "Frontend Development",
-      technologies: [
-        { name: "React", icon: FaReact, color: "#61DAFB" },
-        { name: "Next.js", icon: SiNextdotjs, color: "#000000" },
-        { name: "TypeScript", icon: SiTypescript, color: "#3178C6" },
-        { name: "JavaScript", icon: FaJs, color: "#F7DF1E" },
-        { name: "HTML5", icon: FaHtml5, color: "#E34F26" },
-        { name: "CSS3", icon: FaCss3Alt, color: "#1572B6" },
-        { name: "Tailwind CSS", icon: SiTailwindcss, color: "#06B6D4" },
-        { name: "Bootstrap", icon: FaBootstrap, color: "#7952B3" },
-        { name: "Framer Motion", icon: SiFramer, color: "#0055FF" }
-      ]
+      category: 'Frontend',
+      items: [
+        { name: 'JavaScript',    icon: FaJs,          color: '#F7DF1E' },
+        { name: 'HTML5',         icon: FaHtml5,        color: '#E34F26' },
+        { name: 'CSS3',          icon: FaCss3Alt,      color: '#1572B6' },
+        { name: 'Tailwind CSS',  icon: SiTailwindcss,  color: '#06B6D4' },
+        { name: 'Svelte',        icon: SiSvelte,       color: '#FF3E00' },
+        { name: 'Bootstrap',     icon: FaBootstrap,    color: '#7952B3' },
+        { name: 'Framer Motion', icon: SiFramer,       color: '#0055FF' },
+      ],
     },
     {
-      title: "Backend Development",
-      technologies: [
-        { name: "Node.js", icon: FaNodeJs, color: "#339933" },
-        { name: "Express", icon: SiExpress, color: "#000000" },
-        { name: ".NET Core", icon: SiDotnet, color: "#512BD4" },
-        { name: "Golang", icon: SiGo, color: "#00ADD8" },
-        { name: "Java", icon: FaJava, color: "#ED8B00" },
-        { name: "Python", icon: FaPython, color: "#3776AB" }
-      ]
+      category: 'Backend',
+      items: [
+        { name: 'Express',   icon: SiExpress,  color: isDarkMode ? '#ffffff' : '#000000' },
+        { name: 'Golang',    icon: SiGo,       color: '#00ADD8' },
+        { name: 'Python',    icon: FaPython,   color: '#3776AB' },
+        { name: 'FastAPI',   icon: SiFastapi,  color: '#009688' },
+        { name: '.NET Core', icon: SiDotnet,   color: '#512BD4' },
+        { name: 'Java',      icon: FaJava,     color: '#ED8B00' },
+      ],
     },
     {
-      title: "Database & Tools",
-      technologies: [
-        { name: "MongoDB", icon: SiMongodb, color: "#47A248" },
-        { name: "PostgreSQL", icon: SiPostgresql, color: "#336791" },
-        { name: "MySQL", icon: SiMysql, color: "#4479A1" },
-        { name: "Supabase", icon: SiSupabase, color: "#3ECF8E" },
-        { name: "Git", icon: FaGitAlt, color: "#F05032" },
-        { name: "Docker", icon: FaDocker, color: "#2496ED" },
-        { name: "AWS", icon: FaAws, color: "#FF9900" },
-        { name: "Vercel", icon: SiVercel, color: "#000000" },
-        { name: "Linux", icon: FaLinux, color: "#FCC624" }
-      ]
-    }
+      category: 'Database & Tools',
+      items: [
+        { name: 'MongoDB',  icon: SiMongodb,  color: '#47A248' },
+        { name: 'MySQL',    icon: SiMysql,    color: '#4479A1' },
+        { name: 'Git',      icon: FaGitAlt,   color: '#F05032' },
+        { name: 'Docker',   icon: FaDocker,   color: '#2496ED' },
+        { name: 'AWS',      icon: FaAws,      color: '#FF9900' },
+        { name: 'Vercel',   icon: SiVercel,   color: isDarkMode ? '#ffffff' : '#000000' },
+        { name: 'Linux',    icon: FaLinux,    color: '#FCC624' },
+      ],
+    },
   ];
 
   return (
-    <section id="skills" className="py-8 md:py-16" suppressHydrationWarning>
+    <section id="skills" className="py-8 md:py-16">
       <h2 className="text-2xl md:text-3xl font-bold text-center mb-12 gradient-text">
         Tech Stack
       </h2>
-      
-      {/* Card-based Layout */}
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {techCategories.map((category, categoryIndex) => (
-          <motion.div
-            key={category.title}
-            className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-slate-200/50 dark:border-slate-700/50"
-            initial={isMounted ? { opacity: 0, y: 30 } : false}
-            whileInView={isMounted ? { opacity: 1, y: 0 } : {}}
-            viewport={{ once: true, amount: 0.1 }}
-            transition={{ duration: 0.6, delay: categoryIndex * 0.1 }}
-            whileHover={isMounted ? { y: -5 } : {}}
-          >
-            {/* Card Header */}
-            <div className="text-center mb-6">
-              <h3 className="text-lg font-bold gradient-text">
-                {category.title}
-              </h3>
-            </div>
 
-            {/* Technology Grid */}
-            <div className="grid grid-cols-3 gap-3">
-              {category.technologies.map((tech, index) => {
-                const IconComponent = tech.icon;
-                return (
-                  <motion.div
-                    key={tech.name}
-                    className="flex flex-col items-center p-3 bg-slate-50/80 dark:bg-slate-700/50 rounded-lg hover:bg-slate-100/80 dark:hover:bg-slate-600/50 transition-colors duration-300"
-                    initial={isMounted ? { opacity: 0, scale: 0.8 } : false}
-                    whileInView={isMounted ? { opacity: 1, scale: 1 } : {}}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.3, delay: index * 0.05 }}
-                    whileHover={isMounted ? { scale: 1.05 } : {}}
-                  >
-                    <IconComponent 
-                      className="text-2xl mb-1" 
-                      style={{ color: tech.color }}
-                    />
-                    <span className="text-xs font-medium text-gray-700 dark:text-slate-300 text-center leading-tight">
-                      {tech.name}
-                    </span>
-                  </motion.div>
-                );
-              })}
-            </div>
-          </motion.div>
-        ))}
+      {/* Core Skills — Marquee */}
+      <div className="mb-12">
+        <p className="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-widest text-center mb-6">
+          Core Skills
+        </p>
+        <div
+          className="overflow-hidden"
+          style={{
+            maskImage: 'linear-gradient(to right, transparent, black 12%, black 88%, transparent)',
+            WebkitMaskImage: 'linear-gradient(to right, transparent, black 12%, black 88%, transparent)',
+          }}
+        >
+          <div className="flex gap-4 motion-safe:animate-marquee hover:[animation-play-state:paused]">
+            {[...coreSkills, ...coreSkills, ...coreSkills].map((skill, i) => {
+              const Icon = skill.icon;
+              const isDuplicate = i >= coreSkills.length;
+              return (
+                <div
+                  key={i}
+                  aria-hidden={isDuplicate ? 'true' : undefined}
+                  className="flex flex-col items-center gap-2 p-4 rounded-2xl bg-white/80 dark:bg-slate-800/80 border border-brand-blue-200/60 dark:border-brand-blue-800/40 shadow-sm hover:shadow-md hover:border-brand-blue-400/60 dark:hover:border-brand-blue-500/50 transition-all duration-300 w-36 shrink-0 cursor-default"
+                >
+                  <Icon className="text-4xl" style={{ color: skill.color }} />
+                  <span className="text-sm font-bold text-slate-800 dark:text-slate-100 text-center leading-tight">
+                    {skill.name}
+                  </span>
+                  <span className="text-xs text-slate-500 dark:text-slate-400 text-center leading-tight">
+                    {skill.subtitle}
+                  </span>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+
+      {/* All Technologies */}
+      <div>
+        <p className="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-widest text-center mb-6">
+          All Technologies
+        </p>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          {allTech.map((group, gi) => (
+            <motion.div
+              key={group.category}
+              className="bg-white/60 dark:bg-slate-800/60 rounded-2xl p-5 border border-slate-200/50 dark:border-slate-700/50"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: gi * 0.1 }}
+            >
+              <h3 className="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-4">
+                {group.category}
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {group.items.map((tech) => {
+                  const Icon = tech.icon;
+                  return (
+                    <div
+                      key={tech.name}
+                      className="flex items-center gap-1.5 px-3 py-1.5 bg-slate-100/80 dark:bg-slate-700/60 rounded-full text-sm text-slate-700 dark:text-slate-300 border border-slate-200/50 dark:border-slate-600/30 hover:border-brand-blue-400/50 dark:hover:border-brand-blue-500/40 transition-colors duration-200"
+                    >
+                      <Icon style={{ color: tech.color }} className="text-base shrink-0" />
+                      <span className="font-medium">{tech.name}</span>
+                    </div>
+                  );
+                })}
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );

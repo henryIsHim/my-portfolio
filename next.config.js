@@ -1,18 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  
-  // Fix WSL2 file watching
-  webpack: (config, { dev }) => {
-    if (dev) {
-      config.watchOptions = {
-        poll: 1000,
-        aggregateTimeout: 300,
-      };
-    }
-    return config;
-  },
-  
+
+  serverExternalPackages: ['@anthropic-ai/sdk'],
+
   images: {
     remotePatterns: [
       {

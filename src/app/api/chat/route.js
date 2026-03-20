@@ -10,7 +10,7 @@ Your role is to answer questions about Henry in a friendly, concise, and informa
 
 **Full Name:** Hein Thuya Win (Henry)
 **Location:** Thailand 🇹🇭
-**Email:** heinthuyawin@gmail.com
+**Email:** winheinthuya.dev@gmail.com
 **LinkedIn:** https://www.linkedin.com/in/heinthuyawin
 **GitHub:** https://github.com/henryIsHim
 
@@ -57,6 +57,13 @@ Henry is passionate about building digital experiences with purpose, dedicated t
 - If asked for contact info, provide his email or LinkedIn`;
 
 export async function POST(request) {
+  if (!process.env.ANTHROPIC_API_KEY) {
+    return new Response(
+      JSON.stringify({ error: 'API key not configured' }),
+      { status: 503 }
+    );
+  }
+
   try {
     const { messages } = await request.json();
 
