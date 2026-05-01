@@ -48,9 +48,9 @@ export default function ContactForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="w-full glass-effect border border-slate-300/30 dark:border-slate-600/30 rounded-2xl shadow-lg p-4 sm:p-8 space-y-6 mx-auto">
+    <form onSubmit={handleSubmit} className="w-full glass-effect border border-zinc-200 dark:border-zinc-800 rounded-2xl shadow-lg p-4 sm:p-8 space-y-6 mx-auto">
       <div>
-        <label htmlFor="name" className="block text-sm font-semibold text-slate-800 dark:text-slate-100 mb-2">Name</label>
+        <label htmlFor="name" className="block text-sm font-semibold text-zinc-800 dark:text-zinc-100 mb-2">Name</label>
         <input
           type="text"
           id="name"
@@ -59,11 +59,11 @@ export default function ContactForm() {
           onChange={handleChange}
           placeholder="Enter your full name"
           required
-          className="w-full px-5 py-3 border border-slate-300/50 dark:border-slate-600/30 rounded-lg bg-white/90 dark:bg-slate-700/50 text-slate-900 dark:text-slate-50 text-base focus:outline-none focus:ring-2 focus:ring-brand-blue-500 focus:border-brand-blue-500 transition placeholder-slate-500 dark:placeholder-slate-300"
+          className="w-full px-5 py-3 border border-zinc-200 dark:border-zinc-700 rounded-lg bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-50 text-base focus:outline-none focus:ring-2 focus:ring-zinc-400 dark:focus:ring-zinc-500 focus:border-zinc-500 dark:focus:border-zinc-400 transition placeholder-zinc-400 dark:placeholder-zinc-500"
         />
       </div>
       <div>
-        <label htmlFor="email" className="block text-sm font-semibold text-slate-800 dark:text-slate-100 mb-2">Email</label>
+        <label htmlFor="email" className="block text-sm font-semibold text-zinc-800 dark:text-zinc-100 mb-2">Email</label>
         <input
           type="email"
           id="email"
@@ -72,11 +72,11 @@ export default function ContactForm() {
           onChange={handleChange}
           placeholder="your.email@example.com"
           required
-          className="w-full px-5 py-3 border border-slate-300/50 dark:border-slate-600/30 rounded-lg bg-white/90 dark:bg-slate-700/50 text-slate-900 dark:text-slate-50 text-base focus:outline-none focus:ring-2 focus:ring-brand-blue-500 focus:border-brand-blue-500 transition placeholder-slate-500 dark:placeholder-slate-300"
+          className="w-full px-5 py-3 border border-zinc-200 dark:border-zinc-700 rounded-lg bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-50 text-base focus:outline-none focus:ring-2 focus:ring-zinc-400 dark:focus:ring-zinc-500 focus:border-zinc-500 dark:focus:border-zinc-400 transition placeholder-zinc-400 dark:placeholder-zinc-500"
         />
       </div>
       <div>
-        <label htmlFor="message" className="block text-sm font-semibold text-slate-800 dark:text-slate-100 mb-2">Message</label>
+        <label htmlFor="message" className="block text-sm font-semibold text-zinc-800 dark:text-zinc-100 mb-2">Message</label>
         <textarea
           id="message"
           name="message"
@@ -86,16 +86,16 @@ export default function ContactForm() {
           required
           rows={5}
           maxLength={1000}
-          className="w-full px-5 py-4 sm:py-3 border border-slate-300/50 dark:border-slate-600/30 rounded-lg bg-white/90 dark:bg-slate-700/50 text-slate-900 dark:text-slate-50 text-base focus:outline-none focus:ring-2 focus:ring-brand-blue-500 focus:border-brand-blue-500 transition resize-none placeholder-slate-500 dark:placeholder-slate-300"
+          className="w-full px-5 py-4 sm:py-3 border border-zinc-200 dark:border-zinc-700 rounded-lg bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-50 text-base focus:outline-none focus:ring-2 focus:ring-zinc-400 dark:focus:ring-zinc-500 focus:border-zinc-500 dark:focus:border-zinc-400 transition resize-none placeholder-zinc-400 dark:placeholder-zinc-500"
         />
       </div>
       {error && <div role="alert" className="text-red-400 text-sm font-medium">{error}</div>}
-      {status === 'success' && <div role="alert" className="text-green-400 text-sm font-medium">Thank you! Your message has been sent.</div>}
+      {status === 'success' && <div role="alert" className="text-zinc-700 dark:text-zinc-300 text-sm font-medium">Thank you! Your message has been sent.</div>}
       {status === 'error' && <div role="alert" className="text-red-400 text-sm font-medium">Something went wrong. Please try again later.</div>}
       <button
         type="submit"
         disabled={status === 'sending'}
-        className="w-full py-3 px-4 bg-gradient-blue text-white text-lg font-semibold rounded-lg shadow-md blue-glow hover:shadow-lg transition-all disabled:opacity-60"
+        className="w-full py-3 px-4 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 text-lg font-semibold rounded-lg shadow-sm hover:bg-zinc-700 dark:hover:bg-zinc-200 transition-all disabled:opacity-60"
       >
         {status === 'sending' ? 'Sending...' : 'Send'}
       </button>
