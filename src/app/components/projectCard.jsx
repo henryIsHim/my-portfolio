@@ -21,8 +21,8 @@ const ProjectCard = ({ project }) => {
       {/* Project Image */}
       <div className="relative h-40 sm:h-48 w-full">
         {imgError ? (
-          <div className="absolute inset-0 bg-gradient-to-br from-brand-blue-900/60 to-slate-800 flex items-center justify-center">
-            <span className="text-slate-400 text-sm font-medium">{title}</span>
+          <div className="absolute inset-0 bg-zinc-200 dark:bg-zinc-800 flex items-center justify-center">
+            <span className="text-zinc-400 text-sm font-medium">{title}</span>
           </div>
         ) : (
           <Image
@@ -42,7 +42,7 @@ const ProjectCard = ({ project }) => {
               href={liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 bg-slate-800/90 text-slate-200 rounded-full hover:bg-brand-blue-500 hover:text-white transition-colors"
+              className="p-2 bg-zinc-800/90 text-zinc-200 rounded-full hover:bg-white hover:text-zinc-900 transition-colors"
               title="Live Demo"
             >
               <FiExternalLink className="w-5 h-5" />
@@ -53,7 +53,7 @@ const ProjectCard = ({ project }) => {
               href={githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 bg-slate-800/90 text-slate-200 rounded-full hover:bg-brand-blue-500 hover:text-white transition-colors"
+              className="p-2 bg-zinc-800/90 text-zinc-200 rounded-full hover:bg-white hover:text-zinc-900 transition-colors"
               title="View Code"
             >
               <FiGithub className="w-5 h-5" />
@@ -65,25 +65,25 @@ const ProjectCard = ({ project }) => {
       {/* Project Info */}
       <div className="p-4 md:p-6">
         <div className="flex items-center gap-2 mb-2">
-          <h3 className="text-lg md:text-xl font-bold text-slate-900 dark:text-slate-50">{title}</h3>
+          <h3 className="text-lg md:text-xl font-bold text-zinc-900 dark:text-zinc-50">{title}</h3>
           {status && (
             <span className={`px-2 py-0.5 text-xs font-medium rounded-full border shrink-0 ${
               status === 'Complete'
-                ? 'bg-green-500/15 text-green-600 dark:text-green-400 border-green-400/40'
-                : 'bg-amber-500/15 text-amber-600 dark:text-amber-400 border-amber-400/40'
+                ? 'bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 border-transparent'
+                : 'border-zinc-400 dark:border-zinc-500 text-zinc-600 dark:text-zinc-400'
             }`}>
               {status}
             </span>
           )}
         </div>
-        <p className="text-sm md:text-base text-slate-700 dark:text-slate-200 mb-4 line-clamp-2">{description}</p>
+        <p className="text-sm md:text-base text-zinc-700 dark:text-zinc-200 mb-4 line-clamp-2">{description}</p>
 
         {/* Tags */}
         <div className="flex flex-wrap gap-1.5 md:gap-2">
           {tags.map((tag, index) => (
             <span
               key={index}
-              className="px-2 md:px-3 py-1 bg-slate-200/50 dark:bg-slate-700/50 text-slate-700 dark:text-slate-200 rounded-full text-xs font-medium border border-slate-400/30 dark:border-slate-600/30"
+              className="px-2 md:px-3 py-1 bg-zinc-200/50 dark:bg-zinc-700/50 text-zinc-700 dark:text-zinc-200 rounded-full text-xs font-medium border border-zinc-400/30 dark:border-zinc-600/30"
             >
               {tag}
             </span>

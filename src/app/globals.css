@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -8,10 +8,14 @@
   font-family: 'Poppins', sans-serif;
 }
 
-/* Light mode — flat near-white base, brand color does the work */
+h1, h2 {
+  font-family: 'Playfair Display', serif;
+}
+
+/* Light mode — clean white */
 body {
-  background: #f8f8ff;
-  color: #1e293b;
+  background: #ffffff;
+  color: #0a0a0a;
   min-height: 100vh;
   position: relative;
   overflow-x: hidden;
@@ -19,69 +23,50 @@ body {
   font-weight: 400;
 }
 
-/* Dark mode — near-black with cyan glow baked into background */
+/* Dark mode — pure black */
 .dark body {
-  background:
-    radial-gradient(ellipse at 88% 8%, rgba(99, 210, 255, 0.10) 0%, transparent 52%),
-    #07091a;
-  color: #f8fafc;
+  background: #0a0a0a;
+  color: #fafafa;
 }
 
-/* Noise texture — light mode */
+/* Noise texture — adds tactile depth */
 body::before {
   content: '';
   position: fixed;
   inset: 0;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
-  opacity: 0.038;
+  opacity: 0.05;
   pointer-events: none;
   z-index: -1;
 }
 
-/* Noise texture — slightly subtler on dark */
 .dark body::before {
-  opacity: 0.022;
+  opacity: 0.04;
 }
 
-/* Violet glow — dark mode only, bottom left */
-body::after {
-  content: '';
-  position: fixed;
-  width: 70vw;
-  height: 65vh;
-  bottom: -20vh;
-  left: -15vw;
-  background: none;
-  pointer-events: none;
-  z-index: -1;
-}
 
-.dark body::after {
-  background: radial-gradient(ellipse at center,
-    rgba(192, 132, 252, 0.13) 0%,
-    rgba(139, 92, 246, 0.08) 45%,
-    transparent 70%
-  );
-}
-
-/* Glass effect — white elevated cards in light mode */
+/* Glass effect — monochrome */
 .glass-effect {
   backdrop-filter: blur(16px) saturate(180%);
-  background-color: rgba(255, 255, 255, 0.88);
-  border: 1px solid rgba(99, 102, 241, 0.10);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 4px 16px rgba(99, 102, 241, 0.07);
+  background-color: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 4px 16px rgba(0, 0, 0, 0.06);
   transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .dark .glass-effect {
-  background-color: rgba(15, 12, 40, 0.72);
-  border: 1px solid rgba(255, 255, 255, 0.07);
-  box-shadow: none;
+  background-color: rgba(10, 10, 10, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
 }
 
-/* Glow effect */
+/* Subtle shadow replacing the colored glow */
 .blue-glow {
-  box-shadow: 0 0 20px rgba(99, 102, 241, 0.35);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+}
+
+.dark .blue-glow {
+  box-shadow: 0 2px 12px rgba(255, 255, 255, 0.08);
 }
 
 /* Faster marquee on mobile */
@@ -91,9 +76,24 @@ body::after {
   }
 }
 
-/* Animated gradient text */
+.scrollbar-hide {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Monochrome gradient text */
 .gradient-text {
-  background: linear-gradient(135deg, #818cf8 0%, #6366f1 50%, #4f46e5 100%);
+  background: linear-gradient(135deg, #0a0a0a 0%, #525252 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.dark .gradient-text {
+  background: linear-gradient(135deg, #ffffff 0%, #a3a3a3 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

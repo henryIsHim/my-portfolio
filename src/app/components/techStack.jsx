@@ -90,11 +90,43 @@ const TechStack = () => {
 
       {/* Core Skills — Marquee */}
       <div className="mb-12">
-        <p className="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-widest text-center mb-6">
+        <p className="text-xs font-semibold text-zinc-500 dark:text-zinc-400 uppercase tracking-widest text-center mb-6">
           Core Skills
         </p>
+        {/* Mobile — animated + swipeable */}
         <div
-          className="overflow-hidden"
+          className="md:hidden overflow-x-auto scrollbar-hide"
+          style={{
+            maskImage: 'linear-gradient(to right, transparent, black 12%, black 88%, transparent)',
+            WebkitMaskImage: 'linear-gradient(to right, transparent, black 12%, black 88%, transparent)',
+          }}
+        >
+          <div className="flex gap-4 motion-safe:animate-marquee">
+            {[...coreSkills, ...coreSkills, ...coreSkills].map((skill, i) => {
+              const Icon = skill.icon;
+              const isDuplicate = i >= coreSkills.length;
+              return (
+                <div
+                  key={i}
+                  aria-hidden={isDuplicate ? 'true' : undefined}
+                  className="flex flex-col items-center gap-2 p-4 rounded-2xl bg-white/80 dark:bg-zinc-900/80 border border-zinc-200 dark:border-zinc-800 shadow-sm w-36 shrink-0"
+                >
+                  <Icon className="text-4xl" style={{ color: skill.color }} />
+                  <span className="text-sm font-bold text-zinc-800 dark:text-zinc-100 text-center leading-tight">
+                    {skill.name}
+                  </span>
+                  <span className="text-xs text-zinc-500 dark:text-zinc-400 text-center leading-tight">
+                    {skill.subtitle}
+                  </span>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Desktop — animated marquee */}
+        <div
+          className="hidden md:block overflow-hidden"
           style={{
             maskImage: 'linear-gradient(to right, transparent, black 12%, black 88%, transparent)',
             WebkitMaskImage: 'linear-gradient(to right, transparent, black 12%, black 88%, transparent)',
@@ -108,13 +140,13 @@ const TechStack = () => {
                 <div
                   key={i}
                   aria-hidden={isDuplicate ? 'true' : undefined}
-                  className="flex flex-col items-center gap-2 p-4 rounded-2xl bg-white/80 dark:bg-slate-800/80 border border-brand-blue-200/60 dark:border-brand-blue-800/40 shadow-sm hover:shadow-md hover:border-brand-blue-400/60 dark:hover:border-brand-blue-500/50 transition-all duration-300 w-36 shrink-0 cursor-default"
+                  className="flex flex-col items-center gap-2 p-4 rounded-2xl bg-white/80 dark:bg-zinc-900/80 border border-zinc-200 dark:border-zinc-800 shadow-sm hover:shadow-md hover:border-zinc-400 dark:hover:border-zinc-600 transition-all duration-300 w-36 shrink-0 cursor-default"
                 >
                   <Icon className="text-4xl" style={{ color: skill.color }} />
-                  <span className="text-sm font-bold text-slate-800 dark:text-slate-100 text-center leading-tight">
+                  <span className="text-sm font-bold text-zinc-800 dark:text-zinc-100 text-center leading-tight">
                     {skill.name}
                   </span>
-                  <span className="text-xs text-slate-500 dark:text-slate-400 text-center leading-tight">
+                  <span className="text-xs text-zinc-500 dark:text-zinc-400 text-center leading-tight">
                     {skill.subtitle}
                   </span>
                 </div>
@@ -126,20 +158,20 @@ const TechStack = () => {
 
       {/* All Technologies */}
       <div>
-        <p className="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-widest text-center mb-6">
+        <p className="text-xs font-semibold text-zinc-500 dark:text-zinc-400 uppercase tracking-widest text-center mb-6">
           All Technologies
         </p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {allTech.map((group, gi) => (
             <motion.div
               key={group.category}
-              className="bg-white/60 dark:bg-slate-800/60 rounded-2xl p-5 border border-slate-200/50 dark:border-slate-700/50"
+              className="bg-white/60 dark:bg-zinc-900/60 rounded-2xl p-5 border border-zinc-200/50 dark:border-zinc-800/50"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: gi * 0.1 }}
             >
-              <h3 className="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-4">
+              <h3 className="text-xs font-semibold text-zinc-500 dark:text-zinc-400 uppercase tracking-widest mb-4">
                 {group.category}
               </h3>
               <div className="flex flex-wrap gap-2">
@@ -148,7 +180,7 @@ const TechStack = () => {
                   return (
                     <div
                       key={tech.name}
-                      className="flex items-center gap-1.5 px-3 py-1.5 bg-slate-100/80 dark:bg-slate-700/60 rounded-full text-sm text-slate-700 dark:text-slate-300 border border-slate-200/50 dark:border-slate-600/30 hover:border-brand-blue-400/50 dark:hover:border-brand-blue-500/40 transition-colors duration-200"
+                      className="flex items-center gap-1.5 px-3 py-1.5 bg-zinc-100/80 dark:bg-zinc-800/60 rounded-full text-sm text-zinc-700 dark:text-zinc-300 border border-zinc-200/50 dark:border-zinc-700/50 hover:border-zinc-400 dark:hover:border-zinc-500 transition-colors duration-200"
                     >
                       <Icon style={{ color: tech.color }} className="text-base shrink-0" />
                       <span className="font-medium">{tech.name}</span>
