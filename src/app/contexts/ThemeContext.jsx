@@ -26,11 +26,19 @@ export const ThemeProvider = ({ children }) => {
   }, []);
 
   useEffect(() => {
+    const root = document.documentElement;
     if (isDarkMode) {
-      document.documentElement.classList.add('dark');
+      root.classList.add('dark');
     } else {
-      document.documentElement.classList.remove('dark');
+      root.classList.remove('dark');
     }
+    // iOS WebKit (Safari, LinkedIn/IG in-app browsers) doesn't always invalidate
+    // backdrop-filter composition layers on a class change, leaving transitions
+    // stuck until the next user interaction. Briefly toggling a transform forces
+    // a re-composite so the new theme paints immediately.
+    root.style.transform = 'translateZ(0)';
+    void root.offsetHeight;
+    root.style.transform = '';
     try {
       localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
     } catch (e) {
