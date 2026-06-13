@@ -27,18 +27,31 @@ export const ThemeProvider = ({ children }) => {
 
   useEffect(() => {
     const root = document.documentElement;
-    if (isDarkMode) {
-      root.classList.add('dark');
-    } else {
-      root.classList.remove('dark');
+    const body = document.body;
+    const metaColorScheme = document.querySelector('meta[name="color-scheme"]');
+
+    root.classList.toggle('dark', isDarkMode);
+
+    // Keep browser/UI rendering mode in sync with app theme.
+    const scheme = isDarkMode ? 'dark' : 'light';
+    root.style.colorScheme = scheme;
+    if (metaColorScheme) {
+      metaColorScheme.setAttribute('content', scheme);
     }
-    // iOS WebKit (Safari, LinkedIn/IG in-app browsers) doesn't always invalidate
-    // backdrop-filter composition layers on a class change, leaving transitions
-    // stuck until the next user interaction. Briefly toggling a transform forces
-    // a re-composite so the new theme paints immediately.
-    root.style.transform = 'translateZ(0)';
+
+    // Some in-app browsers (LinkedIn/IG WebView) defer paint updates for
+    // composited layers (e.g. backdrop-filter) until another interaction.
+    // A tiny forced reflow + frame callback makes the theme switch immediate.
+    root.style.webkitTransform = 'translateZ(0)';
+    body.style.webkitTransform = 'translateZ(0)';
     void root.offsetHeight;
-    root.style.transform = '';
+    void body.offsetHeight;
+    requestAnimationFrame(() => {
+      root.style.webkitTransform = '';
+      body.style.webkitTransform = '';
+      window.dispatchEvent(new Event('resize'));
+    });
+
     try {
       localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
     } catch (e) {
@@ -47,7 +60,7 @@ export const ThemeProvider = ({ children }) => {
   }, [isDarkMode]);
 
   const toggleTheme = () => {
-    setIsDarkMode(!isDarkMode);
+    setIsDarkMode((prev) => !prev);
   };
 
   return (
