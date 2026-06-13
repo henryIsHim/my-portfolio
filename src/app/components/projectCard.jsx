@@ -66,12 +66,8 @@ const ProjectCard = ({ project }) => {
       <div className="p-4 md:p-6">
         <div className="flex items-center gap-2 mb-2">
           <h3 className="text-lg md:text-xl font-bold text-zinc-900 dark:text-zinc-50">{title}</h3>
-          {status && (
-            <span className={`px-2 py-0.5 text-xs font-medium rounded-full border shrink-0 ${
-              status === 'Complete'
-                ? 'bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 border-transparent'
-                : 'border-zinc-400 dark:border-zinc-500 text-zinc-600 dark:text-zinc-400'
-            }`}>
+          {status && status !== 'Complete' && (
+            <span className="px-2 py-0.5 text-xs font-medium rounded-full border border-zinc-400 dark:border-zinc-500 text-zinc-600 dark:text-zinc-400 shrink-0">
               {status}
             </span>
           )}
