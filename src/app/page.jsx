@@ -198,37 +198,26 @@ export default function HomePage() {
 
                     {/* Date — desktop only */}
                     <div className="hidden md:flex md:w-44 shrink-0 pr-5 items-start justify-end">
-                      <span className="mt-1 text-sm text-zinc-500 dark:text-zinc-400 whitespace-nowrap">{exp.period}</span>
+                      <span className="mt-1.5 text-xs uppercase tracking-wider text-zinc-500 dark:text-zinc-400 whitespace-nowrap">{exp.period}</span>
                     </div>
 
                     {/* Dot + connecting line */}
-                    <div className="flex flex-col items-center w-5 shrink-0">
-                      <div className="mt-1 w-4 h-4 rounded-full bg-zinc-900 dark:bg-zinc-100 ring-4 ring-zinc-200 dark:ring-zinc-800 shrink-0 z-10" />
+                    <div className="flex flex-col items-center w-3 shrink-0">
+                      <div className="mt-2 w-1.5 h-1.5 rounded-full bg-zinc-900 dark:bg-zinc-100 shrink-0" />
                       {i < arr.length - 1 && (
-                        <div className="flex-1 w-0.5 bg-zinc-200 dark:bg-zinc-700 mt-2 mb-3" />
+                        <div className="flex-1 w-px bg-zinc-200 dark:bg-zinc-800 mt-2" />
                       )}
                     </div>
 
                     {/* Job content */}
-                    <div className={`flex-1 ${i < arr.length - 1 ? 'pb-10' : 'pb-2'} pl-4 md:pl-6 rounded-r-xl group-hover:bg-zinc-50 dark:group-hover:bg-zinc-900/40 transition-colors duration-200`}>
-                      <div className="flex items-start justify-between gap-2 mb-1">
-                        <h4 className="text-base md:text-lg font-bold text-zinc-900 dark:text-zinc-100 leading-snug">{exp.title}</h4>
-                        <span className="md:hidden text-[11px] text-zinc-500 dark:text-zinc-400 whitespace-nowrap shrink-0 mt-1">{exp.period}</span>
-                      </div>
-                      <p className="text-base text-zinc-500 dark:text-zinc-400 font-medium mb-3">{exp.company} · {exp.meta}</p>
-                      <ul className="space-y-2 mb-4">
-                        {exp.bullets.map((point, j) => (
-                          <li key={j} className="flex gap-3 text-base text-zinc-600 dark:text-zinc-400">
-                            <span className="shrink-0 text-zinc-400 dark:text-zinc-600 select-none mt-0.5">—</span>
-                            <span className="leading-relaxed">{point}</span>
-                          </li>
-                        ))}
-                      </ul>
-                      <div className="flex flex-wrap gap-1.5">
-                        {exp.tags.map(tech => (
-                          <span key={tech} className="px-2 py-0.5 bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-300 rounded-full text-xs font-medium">{tech}</span>
-                        ))}
-                      </div>
+                    <div className={`flex-1 ${i < arr.length - 1 ? 'pb-8 md:pb-10' : 'pb-2'} pl-4 md:pl-6 min-w-0`}>
+                      <h4 className="text-[17px] md:text-lg font-semibold text-zinc-900 dark:text-zinc-100 leading-snug mb-1">{exp.title}</h4>
+                      <p className="text-sm text-zinc-500 dark:text-zinc-400 mb-3">
+                        {exp.company} · {exp.meta}
+                        <span className="md:hidden"> · {exp.period}</span>
+                      </p>
+                      <p className="text-[15px] md:text-base text-zinc-600 dark:text-zinc-400 leading-relaxed mb-3">{exp.summary}</p>
+                      <p className="text-xs text-zinc-400 dark:text-zinc-500 tracking-wide leading-relaxed">{exp.tags.join(' · ')}</p>
                     </div>
 
                   </div>
@@ -245,25 +234,23 @@ export default function HomePage() {
 
                 {/* Date — desktop only */}
                 <div className="hidden md:flex md:w-44 shrink-0 pr-5 items-start justify-end">
-                  <span className="mt-1 text-sm text-zinc-500 dark:text-zinc-400 whitespace-nowrap">{education.period}</span>
+                  <span className="mt-1.5 text-xs uppercase tracking-wider text-zinc-500 dark:text-zinc-400 whitespace-nowrap">{education.period}</span>
                 </div>
 
                 {/* Dot */}
-                <div className="flex flex-col items-center w-5 shrink-0">
-                  <div className="mt-1 w-4 h-4 rounded-full bg-zinc-900 dark:bg-zinc-100 ring-4 ring-zinc-200 dark:ring-zinc-800 shrink-0 z-10" />
+                <div className="flex flex-col items-center w-3 shrink-0">
+                  <div className="mt-2 w-1.5 h-1.5 rounded-full bg-zinc-900 dark:bg-zinc-100 shrink-0" />
                 </div>
 
                 {/* Education content */}
-                <div className="flex-1 pb-2 pl-4 md:pl-6 rounded-r-xl group-hover:bg-zinc-50 dark:group-hover:bg-zinc-900/40 transition-colors duration-200">
-                  <div className="flex items-start justify-between gap-2 mb-1">
-                    <h4 className="text-base md:text-lg font-bold text-zinc-900 dark:text-zinc-100 leading-snug">{education.degree}</h4>
-                    <span className="md:hidden text-[11px] text-zinc-500 dark:text-zinc-400 whitespace-nowrap shrink-0 mt-1">{education.period}</span>
-                  </div>
-                  <p className="text-base text-zinc-500 dark:text-zinc-400 font-medium mb-3">{education.school} · {education.location}</p>
-                  <p className="text-base text-zinc-600 dark:text-zinc-400 leading-relaxed mb-3">{education.description}</p>
-                  <div className="flex flex-wrap gap-1.5">
-                    <span className="px-2 py-0.5 bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-300 rounded-full text-xs font-medium">{education.honors}</span>
-                  </div>
+                <div className="flex-1 pb-2 pl-4 md:pl-6 min-w-0">
+                  <h4 className="text-[17px] md:text-lg font-semibold text-zinc-900 dark:text-zinc-100 leading-snug mb-1">{education.degree}</h4>
+                  <p className="text-sm text-zinc-500 dark:text-zinc-400 mb-3">
+                    {education.school} · {education.location}
+                    <span className="md:hidden"> · {education.period}</span>
+                  </p>
+                  <p className="text-[15px] md:text-base text-zinc-600 dark:text-zinc-400 leading-relaxed mb-3">{education.description}</p>
+                  <p className="text-xs text-zinc-400 dark:text-zinc-500 tracking-wide leading-relaxed">{education.honors}</p>
                 </div>
 
               </div>

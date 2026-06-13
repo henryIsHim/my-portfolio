@@ -2,46 +2,38 @@ export const experiences = [
   {
     title: 'Software Engineer',
     company: 'Manatal',
-    meta: 'Bangkok, Thailand',
+    meta: 'On-site',
     period: 'Mar 2026 – Present',
-    bullets: [
-      'Build and develop full-stack features using Vue.js and Django REST Framework, delivering end-to-end functionality across the product.',
-      'Work with PostgreSQL, Docker, ArgoCD, and Datadog for database management, containerisation, deployment, and observability.',
-    ],
-    tags: ['Vue.js', 'Django REST Framework', 'PostgreSQL', 'Docker', 'ArgoCD', 'Datadog', 'Jira'],
+    summary:
+      'Building full-stack features across the recruitment platform with Vue and Django, working end-to-end from Postgres schemas to ArgoCD deploys and Datadog observability.',
+    tags: ['Vue', 'Django', 'PostgreSQL'],
   },
   {
-    title: 'AI Prototyping Engineer',
+    title: 'Product Engineer',
     company: 'Newl App',
-    meta: 'Remote',
+    meta: 'Freelance',
     period: 'Feb – Mar 2026',
-    bullets: [
-      'Built a full-stack AI career simulator using React, TypeScript & Supabase, powered by an LLM multi-agent pipeline with real-time web grounding via Tavily Search.',
-      'Engineered a 3-agent orchestration system (Research Architect, Wealth Calculator, Scene Synthesizer) with parallel scene generation and semantic validation.',
-    ],
-    tags: ['React', 'TypeScript', 'Supabase', 'PostgreSQL', 'Edge Functions', 'LLM'],
+    summary:
+      'Shipped an AI career simulator powered by a 3-agent orchestration pipeline (research architect, wealth calculator, scene synthesizer) with parallel scene generation, semantic validation, and real-time web grounding via Brave Search.',
+    tags: ['React', 'Supabase', 'LLM'],
   },
   {
-    title: 'Full Stack Developer',
+    title: 'Full-Stack Developer',
     company: 'Scarlett Panda',
-    meta: 'Remote',
+    meta: 'Freelance',
     period: 'Nov 2025 – Jan 2026',
-    bullets: [
-      'Built production features with Svelte & Python (FastAPI) — onboarding flows, storybook content generation, and a referral challenge system.',
-      'Optimized LLM prompt logic for AI story consistency and integrated Supabase for auth, storage, and backend services.',
-    ],
-    tags: ['Svelte', 'Python', 'FastAPI', 'Supabase', 'LLM', 'PostgreSQL'],
+    summary:
+      'Shipped production features in Svelte and FastAPI — onboarding flows, AI storybook generation, and a referral challenge system — and tuned the LLM prompt pipeline for narrative consistency.',
+    tags: ['Svelte', 'FastAPI', 'Supabase'],
   },
   {
     title: 'Software Developer Intern',
     company: 'Issa Compass',
-    meta: 'Bangkok, Thailand',
+    meta: 'On-site',
     period: 'Aug – Dec 2025',
-    bullets: [
-      'Built an internal AI workflow automation tool with React, Next.js, TypeScript & Golang (Gin) to automate and evaluate customer inquiry responses at scale.',
-      'Designed PostgreSQL schemas via TablePlus and built REST APIs to manage conversations, logs, and application data.',
-    ],
-    tags: ['React', 'Next.js', 'TypeScript', 'Golang', 'PostgreSQL', 'Git'],
+    summary:
+      'Built an internal AI workflow tool that automates and evaluates customer inquiry responses at scale, spanning a Next.js front-end and a Go (Gin) service backed by Postgres.',
+    tags: ['Next.js', 'Go', 'PostgreSQL'],
   },
 ];
 
