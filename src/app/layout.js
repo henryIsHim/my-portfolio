@@ -28,12 +28,17 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <meta name="color-scheme" content="dark light" />
         <script
           dangerouslySetInnerHTML={{
             __html: `
               (function() {
-                const savedTheme = localStorage.getItem('theme');
-                if (savedTheme === 'dark' || !savedTheme) {
+                try {
+                  var savedTheme = localStorage.getItem('theme');
+                  if (savedTheme === 'dark' || !savedTheme) {
+                    document.documentElement.classList.add('dark');
+                  }
+                } catch (e) {
                   document.documentElement.classList.add('dark');
                 }
               })();
