@@ -8,19 +8,19 @@ import { ThemeProvider } from "./contexts/ThemeContext";
 
 export const metadata = {
   title: "Hein Thuya Win — Full Stack Developer",
-  description: "Portfolio of Hein Thuya Win (Henry), a Full Stack Developer and ICT undergraduate based in Thailand. Specializing in React, Next.js, TypeScript, and AI-powered applications.",
+  description: "Portfolio of Hein Thuya Win (Henry), a Full Stack Developer and ICT graduate based in Thailand. Specializing in React, Next.js, TypeScript, and AI-powered applications.",
   keywords: ["Full Stack Developer", "React", "Next.js", "TypeScript", "AI", "Portfolio", "Thailand", "Hein Thuya Win", "Henry"],
   authors: [{ name: "Hein Thuya Win" }],
   openGraph: {
     type: "website",
     title: "Hein Thuya Win — Full Stack Developer",
-    description: "Portfolio of Hein Thuya Win (Henry), a Full Stack Developer and ICT undergraduate based in Thailand. Specializing in React, Next.js, TypeScript, and AI-powered applications.",
+    description: "Portfolio of Hein Thuya Win (Henry), a Full Stack Developer and ICT graduate based in Thailand. Specializing in React, Next.js, TypeScript, and AI-powered applications.",
     siteName: "Henry's Portfolio",
   },
   twitter: {
     card: "summary_large_image",
     title: "Hein Thuya Win — Full Stack Developer",
-    description: "Portfolio of Hein Thuya Win (Henry), a Full Stack Developer and ICT undergraduate based in Thailand. Specializing in React, Next.js, TypeScript, and AI-powered applications.",
+    description: "Portfolio of Hein Thuya Win (Henry), a Full Stack Developer and ICT graduate based in Thailand. Specializing in React, Next.js, TypeScript, and AI-powered applications.",
   },
 };
 

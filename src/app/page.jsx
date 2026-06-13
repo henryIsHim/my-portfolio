@@ -15,7 +15,7 @@ export default function HomePage() {
   const [displayedText, setDisplayedText] = useState('');
   const [currentTitleIndex, setCurrentTitleIndex] = useState(0);
   const [isTypingComplete, setIsTypingComplete] = useState(false);
-  const titles = ['Full Stack Developer', 'ICT Undergraduate', 'AI Enthusiast'];
+  const titles = ['Full Stack Developer', 'ICT Graduate', 'AI Enthusiast'];
 
   useEffect(() => {
     let currentIndex = 0;
@@ -244,13 +244,19 @@ export default function HomePage() {
 
                 {/* Education content */}
                 <div className="flex-1 pb-2 pl-4 md:pl-6 min-w-0">
-                  <h4 className="text-[17px] md:text-lg font-semibold text-zinc-900 dark:text-zinc-100 leading-snug mb-1">{education.degree}</h4>
+                  <div className="flex flex-wrap items-center gap-x-2 gap-y-1 mb-1">
+                    <h4 className="text-[17px] md:text-lg font-semibold text-zinc-900 dark:text-zinc-100 leading-snug">{education.degree}</h4>
+                    {education.honors && (
+                      <span className="text-[10px] uppercase tracking-wider font-medium text-zinc-500 dark:text-zinc-400 border border-zinc-300 dark:border-zinc-700 rounded px-1.5 py-0.5">
+                        {education.honors}
+                      </span>
+                    )}
+                  </div>
                   <p className="text-sm text-zinc-500 dark:text-zinc-400 mb-3">
                     {education.school} · {education.location}
                     <span className="md:hidden"> · {education.period}</span>
                   </p>
-                  <p className="text-[15px] md:text-base text-zinc-600 dark:text-zinc-400 leading-relaxed mb-3">{education.description}</p>
-                  <p className="text-xs text-zinc-400 dark:text-zinc-500 tracking-wide leading-relaxed">{education.honors}</p>
+                  <p className="text-[15px] md:text-base text-zinc-600 dark:text-zinc-400 leading-relaxed">{education.description}</p>
                 </div>
 
               </div>

@@ -5,6 +5,7 @@ import {
   FaReact,
   FaNodeJs,
   FaGitAlt,
+  FaGithub,
   FaDocker,
   FaPython,
   FaJs,
@@ -30,6 +31,11 @@ import {
   SiSupabase,
   SiSvelte,
   SiFastapi,
+  SiVuedotjs,
+  SiArgo,
+  SiSentry,
+  SiDatadog,
+  SiJira,
 } from 'react-icons/si';
 
 const TechStack = () => {
@@ -52,13 +58,14 @@ const TechStack = () => {
         { name: 'HTML5',         icon: FaHtml5,        color: '#E34F26' },
         { name: 'CSS3',          icon: FaCss3Alt,      color: '#1572B6' },
         { name: 'Tailwind CSS',  icon: SiTailwindcss,  color: '#06B6D4' },
+        { name: 'Vue.js',        icon: SiVuedotjs,     color: '#4FC08D' },
         { name: 'Svelte',        icon: SiSvelte,       color: '#FF3E00' },
         { name: 'Bootstrap',     icon: FaBootstrap,    color: '#7952B3' },
         { name: 'Framer Motion', icon: SiFramer,       color: '#0055FF' },
       ],
     },
     {
-      category: 'Backend',
+      category: 'Backend & Database',
       items: [
         { name: 'Express',   icon: SiExpress,  color: isDarkMode ? '#ffffff' : '#000000' },
         { name: 'Golang',    icon: SiGo,       color: '#00ADD8' },
@@ -66,18 +73,23 @@ const TechStack = () => {
         { name: 'FastAPI',   icon: SiFastapi,  color: '#009688' },
         { name: '.NET Core', icon: SiDotnet,   color: '#512BD4' },
         { name: 'Java',      icon: FaJava,     color: '#ED8B00' },
+        { name: 'MongoDB',   icon: SiMongodb,  color: '#47A248' },
+        { name: 'MySQL',     icon: SiMysql,    color: '#4479A1' },
       ],
     },
     {
-      category: 'Database & Tools',
+      category: 'DevOps & Tools',
       items: [
-        { name: 'MongoDB',  icon: SiMongodb,  color: '#47A248' },
-        { name: 'MySQL',    icon: SiMysql,    color: '#4479A1' },
         { name: 'Git',      icon: FaGitAlt,   color: '#F05032' },
+        { name: 'GitHub',   icon: FaGithub,   color: isDarkMode ? '#ffffff' : '#181717' },
         { name: 'Docker',   icon: FaDocker,   color: '#2496ED' },
+        { name: 'ArgoCD',   icon: SiArgo,     color: '#EF7B4D' },
         { name: 'AWS',      icon: FaAws,      color: '#FF9900' },
         { name: 'Vercel',   icon: SiVercel,   color: isDarkMode ? '#ffffff' : '#000000' },
         { name: 'Linux',    icon: FaLinux,    color: '#FCC624' },
+        { name: 'Sentry',   icon: SiSentry,   color: '#6C5FC7' },
+        { name: 'Datadog',  icon: SiDatadog,  color: '#632CA6' },
+        { name: 'Jira',     icon: SiJira,     color: '#0052CC' },
       ],
     },
   ];
@@ -165,7 +177,7 @@ const TechStack = () => {
           {allTech.map((group, gi) => (
             <motion.div
               key={group.category}
-              className="bg-white/60 dark:bg-zinc-900/60 rounded-2xl p-5 border border-zinc-200/50 dark:border-zinc-800/50"
+              className="glass-effect border border-zinc-200 dark:border-zinc-800 rounded-2xl shadow-lg p-5"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}

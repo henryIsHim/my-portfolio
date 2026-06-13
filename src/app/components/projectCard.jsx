@@ -10,7 +10,7 @@ const ProjectCard = ({ project }) => {
 
   return (
     <motion.div
-      className="group relative glass-effect rounded-2xl overflow-hidden shadow-lg"
+      className="group relative glass-effect border border-zinc-200 dark:border-zinc-800 rounded-2xl overflow-hidden shadow-lg"
       initial={{ opacity: 0, scale: 0.95 }}
       whileInView={{ opacity: 1, scale: 1 }}
       whileHover={{ scale: 1.03, boxShadow: '0 8px 32px rgba(0,0,0,0.15)' }}
